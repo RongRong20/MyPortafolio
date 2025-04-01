@@ -1,0 +1,252 @@
+:root {
+    --background-color: #e9e7e2;
+    --text-color: #302d2a;
+    --highlight-color: #FFD700; /* Dorado */
+    --accent-color: #FF4C29; /* Rojo anaranjado */
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400&display=swap');
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+p, a, li {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+header{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    display: flex;
+    top:0;
+    left: 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);
+    
+}
+
+nav{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* --- Logo --- */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    max-width: 70px;
+    height: auto;
+}
+#logo:hover{
+    opacity: 0.7;
+    transform: scale(1.2);
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li{
+    display: inline;
+}
+
+.menu a {
+    margin: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    transition: color 0.3s;
+
+}
+
+.menu a:hover{
+    background-color: rgb(206, 163, 128);
+    color: #ffffff;
+}
+
+/* --- Menú Hamburguesa (Oculto por defecto en pantallas grandes) --- */
+.hamburger {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Se muestra solo en móviles */
+}
+
+/* --- Responsive: Mostrar el Menú Hamburguesa en móviles --- */
+@media (max-width: 768px) {
+    header{
+        background: #dad3c4;
+    }
+    .menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: radial-gradient(circle, #dad3c4 40%, rgba(245, 245, 220, 0) 100%);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Contenedor del formulario */
+.contact {
+    position: relative;
+    top: 3%;
+    width: 90%;
+    max-width: 600px; /* Evita que sea demasiado ancho */
+    height: auto;
+    max-height: 80vh; /* Para que no toque el footer */
+    margin: auto;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.712);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Estilos generales de inputs */
+h2 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(219, 195, 179, 0.473);
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Botón de enviar */
+input[type="submit"] {
+    background-color: #b4897a;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 15vw;
+    min-width: 150px; /* Asegura que no se haga muy pequeño */
+    max-width: 250px; /* Evita que sea demasiado grande */
+    margin: 10px auto; /* Centrado horizontalmente */
+    display: block;
+}
+
+input[type="submit"]:hover {
+    background-color: #d3b2a3;
+    transform: scale(1.05);
+}
+
+/* Mensaje de éxito */
+.success-message {
+    display: none;
+    margin-top: 10px;
+    color: rgb(67, 114, 67);
+    font-weight: bold;
+}
+
+/* 📌 Estilos del Footer */
+footer {
+    background: linear-gradient(to top, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);/* Degradado de abajo arriba */
+    color: var(--text-color);
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+/* 📌 Contenedor del footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye elementos */
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+    margin-top: 1vw;
+    padding: 1vw;
+}
+
+/* 📌 Logos e imágenes en tamaño reducido */
+.footer-container img {
+    width: 40px; /* Tamaño reducido */
+    height: auto;
+    margin: 0 10px; /* Espacio entre logos */
+    transition: transform 0.3s ease-in-out; /* Efecto al pasar el ratón */
+}
+
+/* 📌 Efecto hover en imágenes */
+.footer-container img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    opacity: 0.7;
+}
+
+/* 📌 Texto pequeño y elegante */
+.footer-text {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+
+/* 📌 Responsive: Ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-container img {
+        margin: 10px 5px;
+    }
+}

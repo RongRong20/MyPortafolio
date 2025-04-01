@@ -1,0 +1,649 @@
+:root {
+    --background-color: #e9e7e2;
+    --text-color: #302d2a;
+    --highlight-color: #FFD700; /* Dorado */
+    --accent-color: #FF4C29; /* Rojo anaranjado */
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400&display=swap');
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+p, a, li {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+header{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    display: flex;
+    top:0;
+    left: 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);
+    
+}
+
+nav{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* --- Logo --- */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    max-width: 70px;
+    height: auto;
+}
+#logo:hover{
+    opacity: 0.7;
+    transform: scale(1.2);
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li{
+    display: inline;
+}
+
+.menu a {
+    margin: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    transition: color 0.3s;
+
+}
+
+.menu a:hover{
+    background-color: rgb(206, 163, 128);
+    color: #ffffff;
+}
+
+/* --- Menú Hamburguesa (Oculto por defecto en pantallas grandes) --- */
+.hamburger {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Se muestra solo en móviles */
+}
+
+/* --- Responsive: Mostrar el Menú Hamburguesa en móviles --- */
+@media (max-width: 768px) {
+    header{
+        background: #dad3c4;
+    }
+    .menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: radial-gradient(circle, #dad3c4 40%, rgba(245, 245, 220, 0) 100%);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+.landing {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra `.about` verticalmente */
+    align-items: center; /* Centra `.about` horizontalmente */
+    text-align: center;
+    position: relative; /* NECESARIO para `.arrow` */
+    min-height: 100vh;
+    background: radial-gradient(circle, rgba(236, 222, 199, 0.5) 20%, rgba(245, 231, 220, 0.3) 60%, rgba(245, 245, 220, 0) 100%);
+}
+
+/* Círculo en la izquierda */
+.landing::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: clamp(150px, 30vw, 350px); /* Se ajusta entre 150px y 350px */
+    height: clamp(150px, 30vw, 350px);
+    background-image: url('../img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER2.png');
+    background-size: cover;
+    background-position: center;
+
+    /* Aplica la máscara en forma de círculo */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    opacity: 0.25;
+    z-index: -1;
+}
+
+/* Hexágono en la derecha */
+.landing::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: clamp(200px, 35vw, 450px); /* Ajuste automático */
+    height: clamp(200px, 35vw, 450px);
+    background-image: url('../img/CPT_2M_TFM_WURONGRONG_24.png');
+    background-size: cover;
+    background-position: center;
+
+    /* Aplica la máscara en forma de hexágono */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    opacity: 0.35;
+    z-index: -1;
+}
+
+
+/* Nuevo círculo en el centro inferior */
+.circle-bottom {
+    position: absolute;
+    bottom: 10vh; /* Lo baja más */
+    left: 35%;
+    transform: translateX(-50%);
+    width: clamp(120px, 25vw, 250px);
+    height: clamp(120px, 25vw, 250px);
+    background-image: url('../img/CPT_2M1T_WURONGRONG_MODELADO_ORGANICO_MILES_RENDER2.png');
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    opacity: 0.35; /* Hace que sea más transparente */
+    z-index: -1;
+}
+
+/* Nuevo círculo en el centro inferior */
+.circle-bottom2 {
+    position: absolute;
+    bottom: 5vh; /* Lo baja más */
+    right: 15%;
+    transform: translateX(-50%);
+    width: clamp(100px, 20vw, 180px);
+    height: clamp(100px, 20vw, 180px);;
+    background-image: url('../img/CPT_2M_TFM_WURONGRONG_ENVIROMENT_RENDER1.png');
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    opacity: 0.25; /* Hace que sea más transparente */
+    z-index: -1;
+}
+
+/* 📌 Responsive: Ajustes en móviles */
+@media (max-width: 1000px) {
+    .landing::before {
+        top: 10%;
+        left: 3%;
+        width: 30vw;
+        height: 30vw;
+    }
+
+    .landing::after {
+        top: 20%;
+        right: 8%;
+        width: 35vw;
+        height: 35vw;
+    }
+
+    .circle-bottom {
+        bottom: 15vh;
+        left: 30%;
+        width: 25vw;
+        height: 25vw;
+    }
+
+    .circle-bottom2 {
+        bottom: 3vh;
+        right: 10%;
+        width: 20vw;
+        height: 20vw;
+    }
+}
+
+@media (max-width:768px){
+    .landing::before {
+        opacity: 0;
+    }
+
+    .landing::after {
+        width: 100vw;
+        height: 100vh;
+        clip-path: none;
+        padding: 0;
+        margin: 0;
+        top: 0;
+        right: 0;
+    }
+
+    .circle-bottom {
+      opacity: 0;
+    }
+
+    .circle-bottom2 {
+       opacity: 0;
+    }
+}
+
+
+/* 📌 Texto dentro de Landing */
+.landing h1 {
+    font-size: clamp(1.8rem, 3.5vw, 5rem);
+    
+}
+
+.landing h3 {
+    font-size: clamp(1.3rem, 2vw, 2.5rem);
+    
+}
+
+
+.about p{
+    max-width: 60vw;
+    margin: 0 auto;
+    font-size: clamp(0.9rem, 1.7vw, 1.5rem);
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📌 Imágenes de redes sociales */
+.about .icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.about .icon img{
+    width: clamp(30px, 5vw, 50px);
+    padding: 1vw;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about .icon img:hover{
+    transform: scale(1.1);
+    opacity: 0.8;
+    
+}
+
+.about button {
+    background-color: #c09f73;
+    width: 20vw;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Adaptable */
+    transition: all 0.3s ease-in-out;
+}
+
+.about button a {
+    text-decoration: none;
+    color: rgb(243, 238, 232);
+    font-size: 16px;
+}
+
+.about button:hover {
+    background-color: #e7d296e5;
+    transform: scale(1.05);
+}
+
+
+/* Flecha centrada sin transform */
+.arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto; /* Centra horizontalmente */
+    text-align: center; /* Asegura que la imagen dentro esté alineada */
+    display: flex;
+    justify-content: center;
+    animation: bounce 1s infinite alternate;
+}
+
+.arrow img {
+    width: clamp(40px, 5vw, 60px);
+    height: auto;
+    display: block; /* Evita márgenes extra alrededor */
+    transition: transform 0.3s ease-in-out;
+}
+
+.arrow img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(15px);
+        opacity: 0.5;
+    }
+}
+
+/* 📌 Responsive en pantallas pequeñas */
+@media (max-width: 768px) {
+
+    .about .icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .about button {
+        width: 100%; /* Botones ocupan todo el ancho en móvil */
+    }
+}
+
+
+#Curriculum {
+    scroll-margin-top: 100px; /* Ajusta según el tamaño de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    text-align: center;
+}
+
+/* 📌 Fondo de EDUCATION con borde difuminado */
+.education {
+    background: rgba(245, 244, 240, 0.822);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 0px 50px rgba(241, 235, 200, 0.3);
+    max-width: 700px;
+    position: relative;
+    
+    
+}
+
+/* 📌 Título de educación */
+.education h4 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 📌 Estilo de la lista de educación */
+.education ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* 📌 Cada ítem de educación */
+.education li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    /* Recorta el fondo con un efecto ondulado */
+    clip-path: polygon(0% 10%, 10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%);
+    
+}
+
+/* 📌 Ícono antes de cada educación */
+.education .icon {
+    font-size: 28px;
+}
+
+/* 📌 Texto dentro de cada educación */
+.edu-content {
+    background: rgba(224, 216, 194, 0.767);
+    padding: 15px;
+    border-radius: 10px;
+    clip-path: ellipse(60%);
+    
+}
+
+/* 📌 Responsive */
+@media (max-width: 768px) {
+    .education {
+        max-width: 100%;
+    }
+
+    .education li {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* 📌 Imagen en la mitad del cuadro */
+.foto {
+    width: 150px;
+    clip-path: circle(50%);
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 5px 5px 15px rgba(211, 199, 186, 0.342);
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 📌 Efecto de aparición */
+.text-box {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.text-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 📌 Contenedor de skills y languages con menos opacidad */
+.skills-languages-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 100%;
+    margin-top: 40px;
+    opacity: 0.85; /* Hace que sea más translúcido */
+}
+
+/* 📌 Skills & Languages */
+.skills, .languages {
+    background: rgba(245, 244, 240, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0px 0px 30px rgba(241, 235, 200, 0.3);
+}
+
+/* 📌 Skills en dos columnas */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+/* 📌 Cada columna de skills */
+.skills-column {
+    background: #e4ddd3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(241, 235, 200, 0.2);
+    text-align: center;
+}
+
+.skills-column h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* 📌 Diseño de las barras de progreso */
+.skill-bar {
+    background: #f0eeec;
+    border-radius: 10px;
+    height: 12px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #d8d4cb, #ffa600);
+    transition: width 1.6s ease-in-out;
+    border-radius: 10px;
+}
+
+/* 📌 Diseño de la sección de idiomas */
+.languages ul {
+    list-style: none;
+    padding: 0;
+}
+
+.languages li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 244, 240, 0.822);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(241, 235, 200, 0.2);
+}
+
+.lang-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.lang-level {
+    background: #ddac63;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 📌 Responsive: Ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+    #Curriculum {
+        grid-template-columns: 1fr; /* Pasa a una sola columna en móviles */
+    }
+    
+    .foto {
+        max-width: 120px;
+    }
+}
+
+/* 📌 Responsive para móviles */
+@media (max-width: 768px) {
+    .education {
+        max-width: 100%;
+    }
+
+    .education li {
+        flex-direction: column;
+        text-align: center;
+    }
+    .skills-languages-container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas pequeñas */
+    }
+}
+
+/* 📌 Estilos del Footer */
+footer {
+    background: linear-gradient(to top, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);/* Degradado de abajo arriba */
+    color: var(--text-color);
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+/* 📌 Contenedor del footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye elementos */
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+    margin-top: 1vw;
+    padding: 1vw;
+}
+
+/* 📌 Logos e imágenes en tamaño reducido */
+.footer-container img {
+    width: 40px; /* Tamaño reducido */
+    height: auto;
+    margin: 0 10px; /* Espacio entre logos */
+    transition: transform 0.3s ease-in-out; /* Efecto al pasar el ratón */
+}
+
+/* 📌 Efecto hover en imágenes */
+.footer-container img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    opacity: 0.7;
+}
+
+/* 📌 Texto pequeño y elegante */
+.footer-text {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+
+/* 📌 Responsive: Ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-container img {
+        margin: 10px 5px;
+    }
+}

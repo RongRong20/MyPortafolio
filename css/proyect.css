@@ -1,0 +1,277 @@
+:root {
+    --background-color: #e9e7e2;
+    --text-color: #302d2a;
+    --highlight-color: #FFD700; /* Dorado */
+    --accent-color: #FF4C29; /* Rojo anaranjado */
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400&display=swap');
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+p, a, li {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+header{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    display: flex;
+    top:0;
+    left: 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);
+    
+}
+
+nav{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* --- Logo --- */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    max-width: 70px;
+    height: auto;
+}
+#logo:hover{
+    opacity: 0.7;
+    transform: scale(1.2);
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li{
+    display: inline;
+}
+
+.menu a {
+    margin: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    transition: color 0.3s;
+
+}
+
+.menu a:hover{
+    background-color: rgb(206, 163, 128);
+    color: #ffffff;
+}
+
+/* --- Menú Hamburguesa (Oculto por defecto en pantallas grandes) --- */
+.hamburger {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Se muestra solo en móviles */
+}
+
+/* --- Responsive: Mostrar el Menú Hamburguesa en móviles --- */
+@media (max-width: 768px) {
+    header{
+        background: #dad3c4;
+    }
+    .menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: radial-gradient(circle, #dad3c4 40%, rgba(245, 245, 220, 0) 100%);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+#artproyect{
+    margin-top: 150px;
+}
+
+/* Page Title */
+.page-title {
+    position: absolute;
+    top: 70px;
+    font-size: 2rem;
+}
+
+/* Project Container */
+.art {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* Project Title */
+.project-title {
+    margin-bottom: 10px;
+    color: black;
+}
+
+/* Image Carousel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel-images{
+    display: flex;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel img {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel img.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Buttons */
+button {
+    background-color: #b4897a;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #d3b2a3;
+    transform: scale(1.05);
+}
+
+/* Popup Window (Modal) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    z-index: 1;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* 📌 Estilos del Footer */
+footer {
+    background: linear-gradient(to top, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);/* Degradado de abajo arriba */
+    color: var(--text-color);
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+/* 📌 Contenedor del footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye elementos */
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+    margin-top: 1vw;
+    padding: 1vw;
+}
+/* 📌 Logos e imágenes en tamaño reducido */
+.footer-container img {
+    width: 40px; /* Tamaño reducido */
+    height: auto;
+    margin: 0 10px; /* Espacio entre logos */
+    transition: transform 0.3s ease-in-out; /* Efecto al pasar el ratón */
+}
+
+/* 📌 Efecto hover en imágenes */
+.footer-container img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    opacity: 0.7;
+}
+
+/* 📌 Texto pequeño y elegante */
+.footer-text {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+
+/* 📌 Responsive: Ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-container img {
+        margin: 10px 5px;
+    }
+}
