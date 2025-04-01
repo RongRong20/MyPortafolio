@@ -119,6 +119,11 @@ nav{
 
 #artproyect{
     margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* Page Title */
@@ -139,6 +144,7 @@ nav{
     width: 80%;
     max-width: 600px;
     margin-bottom: 40px;
+  
 }
 
 /* Project Title */
@@ -220,6 +226,14 @@ button:hover {
     right: 10px;
     cursor: pointer;
     font-size: 1.2rem;
+}
+
+#game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* 📌 Estilos del Footer */
