@@ -1,86 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400&display=swap');
+
 :root {
     --background-color: #e9e7e2;
     --text-color: #302d2a;
-    --highlight-color: #FFD700; /* Dorado */
-    --accent-color: #FF4C29; /* Rojo anaranjado */
+    --highlight-color: #FFD700;
+    --accent-color: #FF4C29;
 }
 
-body{
-    background-color: var(--background-color);
-    color: var(--text-color);
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400&display=swap');
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    padding-top: 80px;
+}
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Playfair Display', serif;
 }
 
-p, a, li {
-    font-family: 'Montserrat', sans-serif;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+/* ===========================
+   Header
+=========================== */
 
-header{
+header {
     width: 100%;
     height: 80px;
     position: fixed;
     display: flex;
-    top:0;
+    top: 0;
     left: 0;
     z-index: 1000;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);
-    
+
 }
 
-nav{
+nav {
     width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 /* --- Logo --- */
 .logo-link {
     display: flex;
     align-items: center;
 }
 
-#logo{
+#logo {
     max-width: 70px;
     height: auto;
+    transition: all 0.3s ease-in-out;
 }
-#logo:hover{
+
+#logo:hover {
     opacity: 0.7;
     transform: scale(1.2);
 }
 
-.menu{
+.menu {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-.menu li{
+.menu li {
     display: inline;
 }
 
 .menu a {
-    margin: 5px;
+    padding: 5px;
     text-decoration: none;
     font-size: 16px;
     color: black;
-    transition: color 0.3s;
-
+    transition: background 0.3s, color 0.3s;
 }
 
-.menu a:hover{
+.menu a:hover {
     background-color: rgb(206, 163, 128);
     color: #ffffff;
+    cursor: pointer;
 }
 
 /* --- Menú Hamburguesa (Oculto por defecto en pantallas grandes) --- */
@@ -88,14 +105,16 @@ nav{
     font-size: 30px;
     color: white;
     cursor: pointer;
-    display: none; /* Se muestra solo en móviles */
+    display: none;
+    /* Se muestra solo en móviles */
 }
 
 /* --- Responsive: Mostrar el Menú Hamburguesa en móviles --- */
 @media (max-width: 768px) {
-    header{
+    header {
         background: #dad3c4;
     }
+
     .menu {
         position: absolute;
         top: 60px;
@@ -117,15 +136,28 @@ nav{
     }
 }
 
+/* ===========================
+   Landing Section
+=========================== */
+
 .landing {
-    height: 100vh;
+    min-height: calc(100vh - 80px);
+    /* Resta el alto del header */
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 5vw;
+    padding-right: 5vw;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra `.about` verticalmente */
-    align-items: center; /* Centra `.about` horizontalmente */
+    justify-content: space-between;
+    /* Centra `.about` verticalmente */
+    align-items: center;
+    /* Centra `.about` horizontalmente */
     text-align: center;
-    position: relative; /* NECESARIO para `.arrow` */
-    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* Si quieres que NO aparezca barra de scroll */
+    /* NECESARIO para `.arrow` */
     background: radial-gradient(circle, rgba(236, 222, 199, 0.5) 20%, rgba(245, 231, 220, 0.3) 60%, rgba(245, 245, 220, 0) 100%);
 }
 
@@ -135,7 +167,8 @@ nav{
     position: absolute;
     top: 10%;
     left: 5%;
-    width: clamp(150px, 30vw, 350px); /* Se ajusta entre 150px y 350px */
+    width: clamp(150px, 30vw, 350px);
+    /* Se ajusta entre 150px y 350px */
     height: clamp(150px, 30vw, 350px);
     background-image: url('../img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER2.png');
     background-size: cover;
@@ -153,7 +186,8 @@ nav{
     position: absolute;
     top: 20%;
     right: 5%;
-    width: clamp(200px, 35vw, 450px); /* Ajuste automático */
+    width: clamp(200px, 35vw, 450px);
+    /* Ajuste automático */
     height: clamp(200px, 35vw, 450px);
     background-image: url('../img/CPT_2M_TFM_WURONGRONG_24.png');
     background-size: cover;
@@ -169,7 +203,8 @@ nav{
 /* Nuevo círculo en el centro inferior */
 .circle-bottom {
     position: absolute;
-    bottom: 10vh; /* Lo baja más */
+    bottom: 10vh;
+    /* Lo baja más */
     left: 35%;
     transform: translateX(-50%);
     width: clamp(120px, 25vw, 250px);
@@ -178,28 +213,32 @@ nav{
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    opacity: 0.35; /* Hace que sea más transparente */
+    opacity: 0.35;
+    /* Hace que sea más transparente */
     z-index: -1;
 }
 
 /* Nuevo círculo en el centro inferior */
 .circle-bottom2 {
     position: absolute;
-    bottom: 5vh; /* Lo baja más */
+    bottom: 5vh;
+    /* Lo baja más */
     right: 15%;
     transform: translateX(-50%);
     width: clamp(100px, 20vw, 180px);
-    height: clamp(100px, 20vw, 180px);;
+    height: clamp(100px, 20vw, 180px);
+    ;
     background-image: url('../img/CPT_2M_TFM_WURONGRONG_ENVIROMENT_RENDER1.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    opacity: 0.25; /* Hace que sea más transparente */
+    opacity: 0.25;
+    /* Hace que sea más transparente */
     z-index: -1;
 }
 
 /* 📌 Responsive: Ajustes en móviles */
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .landing::before {
         top: 10%;
         left: 3%;
@@ -222,14 +261,32 @@ nav{
     }
 
     .circle-bottom2 {
-        bottom: 3vh;
+        bottom: 10vh;
         right: 10%;
         width: 20vw;
         height: 20vw;
     }
+
+    .landing h1 {
+        font-size: clamp(1.5rem, 5vw, 3rem);
+    }
+
+    .landing h3 {
+        font-size: clamp(1rem, 3.5vw, 2rem);
+    }
+
+    .landing p {
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+        max-width: 90%;
+    }
+
+    .landing button {
+        width: 100%;
+    }
+
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
     .landing::before {
         opacity: 0;
     }
@@ -245,66 +302,118 @@ nav{
     }
 
     .circle-bottom {
-      opacity: 0;
+        opacity: 0;
     }
 
     .circle-bottom2 {
-       opacity: 0;
+        opacity: 0;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .landing {
+        min-height: auto;
+        padding-top: 20px;
+        padding-bottom: 60px;
     }
 }
 
 
 /* 📌 Texto dentro de Landing */
 .landing h1 {
-    font-size: clamp(1.8rem, 3.5vw, 5rem);
-    
+    font-size: clamp(2rem, 5vw, 4rem);
 }
 
 .landing h3 {
-    font-size: clamp(1.3rem, 2vw, 2.5rem);
-    
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin: 10px 0;
 }
 
-
-.about p{
-    max-width: 60vw;
-    margin: 0 auto;
-    font-size: clamp(0.9rem, 1.7vw, 1.5rem);
-    line-height: 1.6;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s ease-out forwards;
+.landing p {
+    max-width: 800px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    margin: 20px auto;
 }
+
+.landing button {
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    border: none;
+    background-color: #c09f73;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    max-width: 300px;
+    width: 100%;
+}
+
+.landing button:hover {
+    background-color: #e7d296e5;
+    transform: scale(1.05);
+}
+
 
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* 📌 Imágenes de redes sociales */
-.about .icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+@media (max-width: 480px) {
+    .landing h1 {
+        font-size: clamp(1.3rem, 8vw, 2.2rem);
+    }
+
+    .landing h3 {
+        font-size: clamp(1rem, 4.5vw, 1.8rem);
+    }
+
+    .landing p {
+        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
+        max-width: 95%;
+    }
 }
 
-.about .icon img{
+
+
+/* 📌 Imágenes de redes sociales */
+.about {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.about .icon {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about .icon img {
     width: clamp(30px, 5vw, 50px);
-    padding: 1vw;
-    height: auto;
     transition: transform 0.3s ease-in-out;
 }
 
-.about .icon img:hover{
+.about .icon img:hover {
     transform: scale(1.1);
     opacity: 0.8;
-    
 }
 
 .about button {
@@ -312,12 +421,17 @@ nav{
     width: 20vw;
     color: black;
     border: none;
-    padding: 10px 20px;
-    margin: 15px;
+    padding: 12px 24px;
+    margin: 10px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Adaptable */
-    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+    /* Adaptable */
+    transition: background 0.3s ease;
+}
+
+.about button:hover {
+    background-color: var(--accent-color);
 }
 
 .about button a {
@@ -331,24 +445,32 @@ nav{
     transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+    .about .icons {
+        gap: 10px;
+    }
+
+    .about button {
+        width: 100%;
+    }
+}
 
 /* Flecha centrada sin transform */
 .arrow {
+    margin-top: auto;
     position: absolute;
+    padding-bottom: 20px;
     bottom: 20px;
-    left: 0;
-    right: 0;
-    margin: auto; /* Centra horizontalmente */
-    text-align: center; /* Asegura que la imagen dentro esté alineada */
-    display: flex;
-    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
     animation: bounce 1s infinite alternate;
 }
 
 .arrow img {
     width: clamp(40px, 5vw, 60px);
     height: auto;
-    display: block; /* Evita márgenes extra alrededor */
+    display: block;
+    /* Evita márgenes extra alrededor */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -358,16 +480,23 @@ nav{
 
 @keyframes bounce {
     0% {
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
         opacity: 1;
     }
+
     100% {
-        transform: translateY(15px);
+        transform: translateX(-50%) translateY(15px);
         opacity: 0.5;
     }
 }
 
 /* 📌 Responsive en pantallas pequeñas */
+@media (max-width: 480px) {
+    .arrow {
+        bottom: 5px;
+    }
+}
+
 @media (max-width: 768px) {
 
     .about .icons {
@@ -376,18 +505,57 @@ nav{
     }
 
     .about button {
-        width: 100%; /* Botones ocupan todo el ancho en móvil */
+        width: 100%;
+        /* Botones ocupan todo el ancho en móvil */
     }
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+    .landing {
+        padding: 10vh 5vw;
+    }
+
+    .about p {
+        max-width: 90vw;
+        font-size: 1rem;
+    }
+
+    .skills-languages-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about .icons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .about button {
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    .foto {
+        width: 100px;
+    }
+}
+
+/* ===========================
+   Curriculum Section
+=========================== */
 
 #Curriculum {
-    scroll-margin-top: 100px; /* Ajusta según el tamaño de la imagen */
+    scroll-margin-top: 60px;
+    /* Ajusta según el tamaño de la imagen */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 50px;
+    padding: 80px 20px;
     text-align: center;
 }
 
@@ -398,15 +566,14 @@ nav{
     border-radius: 15px;
     backdrop-filter: blur(12px);
     box-shadow: 0px 0px 50px rgba(241, 235, 200, 0.3);
-    max-width: 700px;
+    max-width: 800px;
     position: relative;
-    
-    
+
 }
 
 /* 📌 Título de educación */
 .education h4 {
-    font-size: 22px;
+    font-size: 1.2rem;
     color: #333;
     margin-bottom: 20px;
 }
@@ -415,18 +582,17 @@ nav{
 .education ul {
     list-style: none;
     padding: 0;
-    text-align: center;
+    margin: 20px auto;
+    max-width: 700px;
 }
 
 /* 📌 Cada ítem de educación */
 .education li {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    background: rgba(224, 216, 194, 0.8);
     margin-bottom: 20px;
-    /* Recorta el fondo con un efecto ondulado */
-    clip-path: polygon(0% 10%, 10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%);
-    
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px rgba(241, 235, 200, 0.3);
 }
 
 /* 📌 Ícono antes de cada educación */
@@ -440,7 +606,7 @@ nav{
     padding: 15px;
     border-radius: 10px;
     clip-path: ellipse(60%);
-    
+
 }
 
 /* 📌 Responsive */
@@ -454,6 +620,7 @@ nav{
         text-align: center;
     }
 }
+
 /* 📌 Imagen en la mitad del cuadro */
 .foto {
     width: 150px;
@@ -481,15 +648,14 @@ nav{
 /* 📌 Contenedor de skills y languages con menos opacidad */
 .skills-languages-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    width: 100%;
     margin-top: 40px;
-    opacity: 0.85; /* Hace que sea más translúcido */
 }
 
 /* 📌 Skills & Languages */
-.skills, .languages {
+.skills,
+.languages {
     background: rgba(245, 244, 240, 0.6);
     padding: 30px;
     border-radius: 15px;
@@ -527,6 +693,7 @@ nav{
     width: 100%;
     overflow: hidden;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .skill-fill {
@@ -570,9 +737,10 @@ nav{
 /* 📌 Responsive: Ajuste en pantallas pequeñas */
 @media (max-width: 768px) {
     #Curriculum {
-        grid-template-columns: 1fr; /* Pasa a una sola columna en móviles */
+        grid-template-columns: 1fr;
+        /* Pasa a una sola columna en móviles */
     }
-    
+
     .foto {
         max-width: 120px;
     }
@@ -588,44 +756,49 @@ nav{
         flex-direction: column;
         text-align: center;
     }
+
     .skills-languages-container {
-        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas pequeñas */
+        grid-template-columns: 1fr;
+        /* Cambia a una sola columna en pantallas pequeñas */
     }
 }
 
-/* 📌 Estilos del Footer */
+/* ===========================
+   Footer
+=========================== */
+
 footer {
-    background: linear-gradient(to top, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);/* Degradado de abajo arriba */
+    background: linear-gradient(to top, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);
+    /* Degradado de abajo arriba */
     color: var(--text-color);
     text-align: center;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    
+    padding: 20px;
+
 }
 
 /* 📌 Contenedor del footer */
 .footer-container {
     display: flex;
-    justify-content: space-between; /* Distribuye elementos */
-    align-items: center;
-    margin: auto;
     flex-wrap: wrap;
-    margin-top: 1vw;
-    padding: 1vw;
+    justify-content: space-between;
 }
 
 /* 📌 Logos e imágenes en tamaño reducido */
 .footer-container img {
-    width: 40px; /* Tamaño reducido */
+    width: 40px;
+    /* Tamaño reducido */
     height: auto;
-    margin: 0 10px; /* Espacio entre logos */
-    transition: transform 0.3s ease-in-out; /* Efecto al pasar el ratón */
+    padding: 0 5px;
+    /* Espacio entre logos */
+    transition: transform 0.3s ease-in-out;
+    /* Efecto al pasar el ratón */
+    cursor: pointer;
 }
 
 /* 📌 Efecto hover en imágenes */
 .footer-container img:hover {
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    transform: scale(1.1);
+    /* Aumenta ligeramente el tamaño */
     opacity: 0.7;
 }
 
@@ -633,7 +806,6 @@ footer {
 .footer-text {
     font-size: 14px;
     opacity: 0.8;
-    margin-top: 20px;
 }
 
 /* 📌 Responsive: Ajuste en pantallas pequeñas */

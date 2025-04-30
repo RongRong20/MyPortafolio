@@ -31,21 +31,42 @@ document.addEventListener("DOMContentLoaded", function () {
         if (infoBtn && modal && closeBtn) {
             infoBtn.addEventListener("click", function () {
                 modal.style.display = "block";
+                container.classList.add("modal-open");
             });
 
             closeBtn.addEventListener("click", function () {
                 modal.style.display = "none";
+                container.classList.remove("modal-open");
             });
 
             window.addEventListener("click", function (event) {
                 if (event.target === modal) {
                     modal.style.display = "none";
+                    container.classList.remove("modal-open");
                 }
             });
         }
     });
 });
 
+
+function openVideoModal() {
+    document.getElementById("videoModal").style.display = "block";
+    document.getElementById("videoOverlay").style.display = "block";
+
+    // Establecer el src para cargar el video
+    const iframe = document.getElementById("youtubeIframe");
+    iframe.src = "https://www.youtube.com/embed/l4rwTyhRJSk?autoplay=1";
+  }
+
+  function closeVideoModal() {
+    document.getElementById("videoModal").style.display = "none";
+    document.getElementById("videoOverlay").style.display = "none";
+
+    // Detener el video al cerrar
+    const iframe = document.getElementById("youtubeIframe");
+    iframe.src = "";
+  }
 
 // Index.html
 

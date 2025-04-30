@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/proyect.css">
     <link rel="icon" type="image/x-icon" href="icon/logo_sinfondo.png">
     <title>My Projects</title>
@@ -49,7 +50,20 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h3>Project Details</h3>
-                    <p>This is where you can add detailed information about the project.</p>
+                    <p>For my final master’s project, I developed a video game environment concept focused on visual
+                        storytelling and atmosphere. The project features two contrasting biomes: a vast desert
+                        landscape and a frozen Arctic setting. Each environment was designed to convey a distinct mood
+                        and narrative, using light, color, and composition to immerse the player in the world.
+
+                        The two locations are connected through magical portals, allowing players to travel between
+                        extreme climates and explore how each environment reflects different story elements. My process
+                        included concept sketches, layout exploration, and moodboards, followed by detailed
+                        illustrations developed in Photoshop and 3D support using Blender for composition and lighting
+                        references.
+
+                        This project allowed me to combine my passion for environment storytelling, worldbuilding, and
+                        gameplay integration, while pushing my technical and artistic skills in the development of
+                        immersive digital spaces.</p>
                 </div>
             </div>
 
@@ -77,7 +91,26 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h3>Project Details</h3>
-                    <p>This is where you can add detailed information about the project.</p>
+                    <p>In addition to my final master's project, I developed several other works focused on both
+                        character and environment design, using a combination of 3D sculpting, photobashing, and digital
+                        painting:
+
+                        Miles Morales Character Illustration: I created a 3D sculpt of Miles in ZBrush to define
+                        anatomy, pose, and expression. This served as the base for a dynamic illustration, where I used
+                        photobashing and overpainting in Photoshop to place the character in an urban setting with
+                        stylized lighting, textures, and motion elements inspired by comic and cinematic visuals.
+
+                        Forest Cabin Scene: A peaceful, storytelling-driven environment centered around a wooden cabin
+                        beside a forest lake. The scene explores mood, depth, and nature, with attention to composition,
+                        lighting, and atmospheric perspective.
+
+                        Castle Entrance Concept: A grand, fantasy-themed illustration featuring the entrance of a
+                        monumental castle. I used 3D blocking for architecture and perspective, then enhanced the scene
+                        with hand-painted details, photorealistic textures, and cinematic lighting.
+
+                        These projects allowed me to refine a hybrid workflow that combines ZBrush sculpting, 2D
+                        painting, and photorealistic elements to create visually rich and storytelling-oriented concept
+                        art for games and media.</p>
                 </div>
             </div>
         </section>
@@ -103,7 +136,38 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h3>Project Details</h3>
-                    <p>This is where you can add detailed information about the project.</p>
+                    <p>n addition to my concept art work, I have developed several 3D character and environment projects
+                        that allowed me to explore a full production workflow from sculpt to render. These projects were
+                        created using the following pipeline:
+
+                        ZBrush for high-resolution sculpting
+
+                        Maya for retopology and clean mesh preparation
+
+                        Mixamo for automatic rigging and posing
+
+                        Substance Painter for texture painting and materials
+
+                        Marvelous Designer for realistic cloth simulation
+
+                        Blender for environment modeling and scene layout
+
+                        Marmoset Toolbag for final rendering and presentation
+
+                        Some of the completed character projects include:
+
+                        An elven archer, focused on graceful anatomy and layered costuming
+
+                        A stylized rabbit, with an expressive pose and cartoon-inspired textures
+
+                        Sara, a modern character concept based on a bass guitarist, blending urban style and attitude
+
+                        A fantasy king, wearing ornate robes and accessories designed to convey power and elegance
+
+                        Each project helped me refine my understanding of the 3D pipeline, from anatomical sculpting and
+                        clothing to posing, texturing, and presentation. I particularly enjoy combining realism and
+                        stylization, bringing characters and environments to life in a visually engaging and technically
+                        polished way.</p>
                 </div>
             </div>
 
@@ -114,37 +178,43 @@
         <h1>Programation Proyect</h1>
         <section class="game">
             <h2 class="project-title">TFG: Scaperoom in Unity</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/l4rwTyhRJSk?si=038oz3NgjfnI2gna" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-box">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/l4rwTyhRJSk?si=038oz3NgjfnI2gna"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
 
-            <!-- More Info Button 
-            <button class="infoBtn">More Info</button>
-
-             Popup Window 
-            <div class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>Project Details</h3>
-                    <p>This is where you can add detailed information about the project.</p>
-                </div>
-            </div>-->
-        </section>
-        <!--
-        <section class="art">
-            <h2 class="project-title">TFG: Scaperoom in Unity</h2>
-            
-
-             More Info Button 
-            <button class="infoBtn">More Info</button>
-
-            Popup Window 
-            <div class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>Project Details</h3>
-                    <p>This is where you can add detailed information about the project.</p>
                 </div>
             </div>
-        </section>-->
+            <!-- More Info Button -->
+            <button class="infoBtn" onclick="openVideoModal()">More Info</button>
+
+            <div class="modal" id="videoModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeVideoModal()">&times;</span>
+                    <h3>Project Details</h3>
+                    <p>As part of my undergraduate final project, I developed a narrative-driven detective game using
+                        Unity. The goal of the game is to solve a mini murder case by exploring different suspect
+                        locations, gathering clues, and analyzing evidence to identify the killer.
+
+                        The player moves between interactive environments, such as rooms in each suspect’s home, where
+                        they can investigate objects, read documents, and uncover hidden items. The game features simple
+                        inventory logic, dialogue sequences, and progressive clue unlocking that leads to the final
+                        deduction.
+
+                        This project allowed me to combine game design, storytelling, and programming, focusing on
+                        player agency and logical thinking. It was built entirely in Unity, with C# scripts handling
+                        object interactions, dialogue triggers, and state changes across the investigation.
+
+                        This experience strengthened my understanding of game logic, scene management, and event
+                        systems, while also highlighting how narrative and mechanics can work together to deliver an
+                        engaging gameplay experience.</p>
+                </div>
+            </div>
+        </section>
+
 
     </section>
 

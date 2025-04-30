@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/contact.css">
-        <link rel="icon" type="image/x-icon" href="icon/logo_sinfondo.png">
-        <title>Contact Form</title>
-    </head>
-      
-    <body>
-       
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
+    <link rel="icon" type="image/x-icon" href="icon/logo_sinfondo.png">
+    <title>Contact Form</title>
+</head>
+
+<body>
+    <div class="page-wrapper">
         <header>
             <nav>
                 <a href="index.html" class="logo-link">
                     <img id="logo" src="icon/logo_sinfondo.png" alt="Logo">
                 </a>
-                
+
                 <ul class="menu">
                     <li><a href="index.html">About me</a> </li>
                     <li><a href="contact.html">Contact</a> </li>
-                    <li><a href="index.html#Curriculum">Curriculum</a></li>    
+                    <li><a href="index.html#Curriculum">Curriculum</a></li>
                 </ul>
                 <div class="hamburger" onclick="toggleMenu()">☰</div>
             </nav>
-          
+
         </header>
-        <section class="contact">
-            <h2>Contact Me</h2> 
+        <main class="contact">
+            <h2>Contact Me</h2>
             <br>
             <form id="contactForm" action="https://formspree.io/f/xeoaokqg" method="POST">
                 <label for="subject">Subject</label>
@@ -36,20 +38,21 @@
                 <br>
                 <br>
                 <label for="content">Message</label>
-                <textarea id="content" name="message" placeholder="Write your message here" rows="4" required></textarea>
+                <textarea id="content" name="message" placeholder="Write your message here" rows="4"
+                    required></textarea>
                 <br>
                 <input type="submit" value="Send">
 
                 <input type="hidden" name="_captcha" value="false">
             </form>
             <p class="success-message" id="successMessage">Message sent successfully!</p>
-        </section>
-        <footer> 
+        </main>
+        <footer>
             <div class="footer-container">
-                
+
                 <div class="social.icons">
                     <a href="document/Currículum Rong Rong Wu.pdf" download="CvRongRongWu.pdf">
-                        <img src="icon/3789854.png" alt="cv"></a>                       
+                        <img src="icon/3789854.png" alt="cv"></a>
                     <a href="contact.html">
                         <img src="icon/6759737.png" alt="Contact-me"></a>
                     <a href="https://www.linkedin.com/in/rong-rong-wu-a41427210/ ">
@@ -58,12 +61,13 @@
                         <img src="icon/unnamed.png" alt="Artstation"></a>
                     <a href="https://www.instagram.com/rong_draw_art/">
                         <img src="icon/insta.png" alt="instagram"> </a>
-                </div> 
+                </div>
                 <p>© Made in 2025 by Rong Rong Wu</p>
             </div>
-            
-          </footer>
-          <script src="js/contact.js"></script>
-    </body>
+
+        </footer>
+    </div>
+    <script src="js/contact.js"></script>
+</body>
 
 </html>
