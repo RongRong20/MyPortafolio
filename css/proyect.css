@@ -45,7 +45,7 @@ header {
     display: flex;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 9009;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);
@@ -80,6 +80,7 @@ nav {
     list-style: none;
     display: flex;
     gap: 20px;
+    z-index: 9999;
 }
 
 .menu li {
@@ -113,7 +114,7 @@ nav {
 @media (max-width: 768px) {
     header {
         background: #dad3c4;
-        z-index: auto;
+        z-index: 9000;
     }
 
     .menu {
