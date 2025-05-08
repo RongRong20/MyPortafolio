@@ -12,8 +12,10 @@
     margin: 0;
     padding: 0;
 }
-html, body {
-  overflow-x: hidden;
+
+html,
+body {
+    overflow-x: hidden;
 }
 
 body {
@@ -146,10 +148,7 @@ nav {
 .landing {
     min-height: calc(100vh - 80px);
     /* Resta el alto del header */
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding: 2vh 5vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -315,26 +314,26 @@ nav {
 
 @media (max-width: 480px) {
     .landing {
-        min-height: auto;
-        padding-top: 20px;
-        padding-bottom: 60px;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+        justify-content: start;
     }
 }
 
 
 /* 📌 Texto dentro de Landing */
 .landing h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(1.8rem, 3vw, 2rem);
 }
 
 .landing h3 {
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     margin: 10px 0;
 }
 
 .landing p {
     max-width: 800px;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     margin: 20px auto;
 }
 
@@ -373,7 +372,7 @@ nav {
 /* 📌 Imágenes de redes sociales */
 .about {
     text-align: center;
-    padding: 60px 20px;
+    padding: 10px 20px;
 }
 
 .about p {
@@ -401,15 +400,17 @@ nav {
     opacity: 0.8;
 }
 
-.btn{
+.btn {
     display: flex;
-    flex-direction: column; /* o row si los quieres lado a lado */
-    align-items: center; /* centra horizontalmente */
+    flex-direction: column;
+    /* o row si los quieres lado a lado */
+    align-items: center;
+    /* centra horizontalmente */
     gap: 25px;
     width: 100%;
 }
 
-.boton{
+.boton {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
