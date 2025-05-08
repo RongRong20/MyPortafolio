@@ -13,13 +13,17 @@
     padding: 0;
 }
 
+html {
+    min-width: 300px;
+}
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     padding-top: 80px;
-    min-width: 280px;
+    min-width: 300px;
 
 }
 
@@ -144,6 +148,7 @@ nav {
 
 .landing {
     min-height: 100dvh;
+    z-index: 0;
     /* Resta el alto del header */
     padding: 2vh 5vw;
     display: flex;
@@ -184,9 +189,9 @@ nav {
     position: absolute;
     top: 20%;
     right: 5%;
-    width: clamp(200px, 35vw, 450px);
+    width: 450px;
     /* Ajuste automático */
-    height: clamp(200px, 35vw, 450px);
+    height: 450px;
     background-image: url('../img/CPT_2M_TFM_WURONGRONG_24.png');
     background-size: cover;
     background-position: center;
@@ -269,18 +274,25 @@ nav {
 }
 
 @media (max-width:768px) {
+
     .landing::before {
-        opacity: 0;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../img/CPT_2M_TFM_WURONGRONG_24.png);
+        background-size: cover;
+        background-position: center;
+        /* solo al fondo */
+        z-index: -1;
+        /* detrás del contenido */
+        clip-path: none;
     }
 
     .landing::after {
-        width: 100vw;
-        height: 100vh;
-        clip-path: none;
-        padding: 0;
-        margin: 0;
-        top: 0;
-        right: 0;
+        opacity: 0;
     }
 
     .circle-bottom {
@@ -290,6 +302,7 @@ nav {
     .circle-bottom2 {
         opacity: 0;
     }
+
 
 }
 
@@ -366,24 +379,25 @@ nav {
 
 .btn {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Por si no caben */
+    margin-top: 20px;
 }
 
 .boton {
-    display: block;
-    margin: 0 auto;
-    padding: 8px;
+    flex: 1 1 200px;
+    /* Mismo ancho adaptable */
     max-width: 220px;
-    width: 100%;
     text-align: center;
+    padding: 10px 20px;
     background-color: #c09f73;
     color: white;
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: background 0.3s, transform 0.3s;
 }
 
@@ -396,7 +410,7 @@ nav {
 .arrow {
     position: absolute;
     padding: 10px 0;
-    bottom: 25px;
+    bottom: 7dvh;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 1s infinite alternate;
@@ -428,56 +442,7 @@ nav {
     }
 }
 
-/* 📌 Responsive en pantallas pequeñas */
-@media (max-width: 480px) {
-    .landing {
-        height: auto;
-        min-height: 100dvh;
-        padding: 1vh 3vw;
-        overflow-y: auto;
-        width: 100%;
-    }
 
-    .landing h1 {
-        font-size: clamp(1.3rem, 8vw, 2.2rem);
-    }
-
-    .landing h3 {
-        font-size: clamp(1rem, 4.5vw, 1.8rem);
-    }
-
-    .landing p {
-        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
-        max-width: 95%;
-    }
-
-    .arrow {
-        bottom: 5px;
-    }
-
-    .boton {
-        font-size: 0.85rem;
-        padding: 8px 10px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .about .icons {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .about p {
-        max-width: 90vw;
-        font-size: 0.8rem;
-    }
-
-    .boton {
-        width: 100%;
-        /* Botones ocupan todo el ancho en móvil */
-    }
-}
 
 @media (max-width: 1024px) and (min-width: 769px) {
     .landing {
@@ -513,17 +478,94 @@ nav {
     }
 }
 
-@media (max-width: 280px) {
+
+@media (max-width: 768px) {
+    .btn {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boton {
+        width: 100%;
+        max-width: 250px;
+        flex: 1 1 20px;
+    }
+
+    .about .icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .about p {
+        max-width: 90vw;
+        font-size: 0.8rem;
+    }
+
+    .arrow {
+        width: 30px;
+    }
+
+}
+
+/* 📌 Responsive en pantallas pequeñas */
+@media (max-width: 480px) {
+    * {
+        box-sizing: content-box;
+    }
+
+    .landing {
+        height: auto;
+        min-height: 100dvh;
+        overflow-y: auto;
+    }
+
+    .landing h1 {
+        font-size: 1.2rem;
+    }
+
+    .landing h3 {
+        font-size: 1rem;
+    }
+
+    .about p {
+        font-size: 0.8rem;
+        max-width: 95%;
+    }
+
+    .arrow {
+        bottom: 5px;
+    }
+
+    .boton {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+}
+
+
+
+@media (max-width: 300px) {
+    .landing {
+        position: relative;
+        padding: 0;
+    }
+
+    .landing::after {
+        display: none;
+    }
 
     .landing h1,
-    .landing h3,
+    .landing h3 {
+        font-size: 0.9rem;
+    }
+
     .about p {
         font-size: 0.8rem;
     }
 
     .boton {
         font-size: 0.75rem;
-        padding: 6px 8px;
+        padding: 5px;
     }
 
     .icon img {
@@ -535,7 +577,7 @@ nav {
     }
 }
 
-@media (max-width: 220px) {
+@media (max-width: 200px) {
     .arrow {
         display: none;
     }
@@ -557,7 +599,7 @@ nav {
 =========================== */
 
 #Curriculum {
-    scroll-margin-top: 60px;
+    scroll-margin-top: 20px;
     /* Ajusta según el tamaño de la imagen */
     display: flex;
     justify-content: center;
