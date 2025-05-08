@@ -12,6 +12,9 @@
     margin: 0;
     padding: 0;
 }
+html, body {
+  overflow-x: hidden;
+}
 
 body {
     background-color: var(--background-color);
@@ -142,7 +145,6 @@ nav {
 
 .landing {
     min-height: calc(100vh - 80px);
-    height: 100vh;
     /* Resta el alto del header */
     padding-top: 0;
     padding-bottom: 0;
@@ -155,7 +157,6 @@ nav {
     align-items: center;
     /* Centra `.about` horizontalmente */
     text-align: center;
-    position: relative;
     overflow: hidden;
     /* Si quieres que NO aparezca barra de scroll */
     /* NECESARIO para `.arrow` */
@@ -401,11 +402,11 @@ nav {
 }
 
 .btn{
-    padding: 0.5rem;
     display: flex;
     flex-direction: column; /* o row si los quieres lado a lado */
     align-items: center; /* centra horizontalmente */
     gap: 25px;
+    width: 100%;
 }
 
 .boton{
@@ -432,6 +433,7 @@ nav {
 /* Flecha centrada sin transform */
 .arrow {
     position: absolute;
+    margin-top: 30px;
     padding-bottom: 20px;
     bottom: 20px;
     left: 50%;
@@ -468,7 +470,7 @@ nav {
 /* 📌 Responsive en pantallas pequeñas */
 @media (max-width: 480px) {
     .arrow {
-        bottom: 5px;
+        margin-top: 10px;
     }
 }
 
