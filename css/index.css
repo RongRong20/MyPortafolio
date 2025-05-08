@@ -142,6 +142,7 @@ nav {
 
 .landing {
     min-height: calc(100vh - 80px);
+    height: 100vh;
     /* Resta el alto del header */
     padding-top: 0;
     padding-bottom: 0;
@@ -336,24 +337,7 @@ nav {
     margin: 20px auto;
 }
 
-.landing button {
-    margin: 10px;
-    padding: 12px 24px;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    border: none;
-    background-color: #c09f73;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-    max-width: 300px;
-    width: 100%;
-}
 
-.landing button:hover {
-    background-color: #e7d296e5;
-    transform: scale(1.05);
-}
 
 
 @keyframes fadeIn {
@@ -416,54 +400,45 @@ nav {
     opacity: 0.8;
 }
 
-.about button {
+.btn{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column; /* o row si los quieres lado a lado */
+    align-items: center; /* centra horizontalmente */
+    gap: 25px;
+}
+
+.boton{
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
     background-color: #c09f73;
-    width: 20vw;
-    color: black;
+    color: white;
     border: none;
-    padding: 12px 24px;
-    margin: 10px;
-    cursor: pointer;
     border-radius: 5px;
-    font-size: 1rem;
-    /* Adaptable */
-    transition: background 0.3s ease;
-}
-
-.about button:hover {
-    background-color: var(--accent-color);
-}
-
-.about button a {
     text-decoration: none;
-    color: rgb(243, 238, 232);
-    font-size: 16px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    transition: background 0.3s, transform 0.3s;
 }
 
-.about button:hover {
+.boton:hover {
     background-color: #e7d296e5;
     transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-    .about .icons {
-        gap: 10px;
-    }
-
-    .about button {
-        width: 100%;
-    }
-}
-
 /* Flecha centrada sin transform */
 .arrow {
-    margin-top: auto;
     position: absolute;
     padding-bottom: 20px;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 1s infinite alternate;
+    z-index: 10;
+    height: auto;
 }
 
 .arrow img {
@@ -504,7 +479,12 @@ nav {
         justify-content: center;
     }
 
-    .about button {
+    .about p {
+        max-width: 90vw;
+        font-size: 0.8rem;
+    }
+
+    .boton {
         width: 100%;
         /* Botones ocupan todo el ancho en móvil */
     }
@@ -512,7 +492,8 @@ nav {
 
 @media (max-width: 1024px) and (min-width: 769px) {
     .landing {
-        padding: 10vh 5vw;
+        padding: 8vh 3vw;
+        height: 100vh;
     }
 
     .about p {
@@ -536,7 +517,7 @@ nav {
 
     .about button {
         width: 80%;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .foto {

@@ -31,7 +31,7 @@
         <section class="art">
             <h2 class="project-title">TFM: Environment</h2>
             <!-- Image Carousel -->
-            <div class="carousel">
+            <div class="carousel media-container">
                 <button class="prevBtn">❮</button>
                 <div class="carousel-images">
                     <img src="img/TFM/CPT_2M_TFM_WURONGRONG_14.png" class="active">
@@ -71,7 +71,7 @@
         <section class="art">
             <h2 class="project-title">Other Proyects</h2>
             <!-- Image Carousel -->
-            <div class="carousel">
+            <div class="carousel media-container">
                 <button class="prevBtn">❮</button>
                 <div class="carousel-images">
                     <img src="img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER2.png" class="active">
@@ -117,7 +117,7 @@
         <section class="art">
             <h2 class="project-title">3D Proyects</h2>
             <!-- Image Carousel -->
-            <div class="carousel">
+            <div class="carousel media-container">
                 <button class="prevBtn">❮</button>
                 <div class="carousel-images">
                     <img src="img/3D/CPT_2M_3T_WURONGRONG_CHARACTER_3D.png" class="active">
@@ -175,11 +175,13 @@
     </section>
 
     <section id="game">
-        <h1>Programation Proyect</h1>
+        <h1 class="page-title">Programation Proyect</h1>
         <section class="game">
-            <h2 class="project-title">TFG: Scaperoom in Unity</h2>
+            
             <div class="video-box">
-                <div class="video-container">
+                <h2 class="project-title">TFG: Scaperoom in Unity</h2>
+                <div class="video-container media-container">
+                    
                     <iframe src="https://www.youtube.com/embed/l4rwTyhRJSk?si=038oz3NgjfnI2gna"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -187,9 +189,10 @@
                     </iframe>
 
                 </div>
+                <button class="infoBtn" onclick="openVideoModal()">More Info</button>
             </div>
             <!-- More Info Button -->
-            <button class="infoBtn" onclick="openVideoModal()">More Info</button>
+            
 
             <div class="modal" id="videoModal">
                 <div class="modal-content">

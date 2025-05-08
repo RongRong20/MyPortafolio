@@ -156,14 +156,15 @@ nav {
 
 /* Project Container */
 .art {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 2rem auto;
     text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    width: 80%;
-    margin-bottom: 40px;
 
 }
 
@@ -178,6 +179,15 @@ nav {
     font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
+/* Contenedor interior de video y carrusel */
+.media-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
 /* Image Carousel */
 .carousel {
     display: flex;
@@ -187,28 +197,33 @@ nav {
     width: 100%;
     margin: auto;
     z-index: auto;
-}
-
-.carousel-images {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3/2;
-    /* ⭐️ Mantiene proporción (3 ancho : 2 alto) */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-radius: 10px;
 }
 
+.carousel-images {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
     /* ⭐️ Hace que la imagen rellene sin deformarse */
     display: none;
     transition: opacity 0.5s ease-in-out;
     opacity: 0;
+    top: 0;
+    left: 0;
 }
 
 .carousel img.active {
@@ -216,21 +231,50 @@ nav {
     opacity: 1;
 }
 
-/* Buttons */
-button {
+
+/* Botones flotantes encima de las imágenes */
+.prevBtn,
+.nextBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0 10px;
+    user-select: none;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+    color: #f8d253b9;
+    transform: scale(1.5);
+}
+
+.prevBtn {
+    left: 10px;
+}
+
+.nextBtn {
+    right: 10px;
+}
+
+.infoBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
     background-color: #b4897a;
     color: white;
     border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
     border-radius: 5px;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    transition: background 0.3s, transform 0.3s;
-    max-width: 200px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
-button:hover {
+.infoBtn:hover {
     background-color: #d3b2a3;
     transform: scale(1.05);
 }
@@ -266,8 +310,15 @@ button:hover {
 }
 */
 #game {
-    padding: 0 5vw;
+    padding: 1rem;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto 2rem auto;
     text-align: center;
+}
+
+h1 {
+    margin: 10px 0;
 }
 
 .video-box {
@@ -275,9 +326,9 @@ button:hover {
     backdrop-filter: blur(10px);
     border-radius: 15px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-    padding: 15px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1600px;
+    margin: 0 auto 40px auto;
     width: 100%;
 }
 
@@ -288,14 +339,19 @@ button:hover {
     /* 🎯 Mantiene proporción exacta del video */
     overflow: hidden;
     border-radius: 10px;
+    text-align: center;
+    padding: 0;
+}
+
+.video-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    display: block;
     border: none;
     border-radius: inherit;
 }
@@ -346,13 +402,6 @@ button:hover {
 
 /* 📱 Responsive Corrections */
 
-@media (min-width: 1400px) {
-    .video-box {
-        max-width: 90%;
-        /* permite que se extienda más allá de 1200px */
-    }
-}
-
 /* Aumentar tamaño en pantallas grandes */
 @media (min-width: 1024px) {
     .modal {
@@ -363,13 +412,20 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    .carousel-images {
-        width: 80vw;
-        height: 200px;
+    .carousel {
+        aspect-ratio: 4 / 3;
+        /* Más alto en móviles */
     }
 
-    button {
-        max-width: none;
+    .prevBtn,
+    .nextBtn {
+        font-size: 2rem;
+    }
+
+    .infoBtn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
     }
 
     .modal {
@@ -402,13 +458,7 @@ button:hover {
     }
 
     #artproyect {
-        margin-top: 100px;
         padding: 0 3vw;
-    }
-
-    .carousel-images {
-        width: 90vw;
-        height: 200px;
     }
 }
 
