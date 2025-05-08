@@ -13,17 +13,14 @@
     padding: 0;
 }
 
-html,
-body {
-    overflow-x: hidden;
-}
-
 body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     padding-top: 80px;
+    min-width: 280px;
+
 }
 
 h1,
@@ -146,7 +143,7 @@ nav {
 =========================== */
 
 .landing {
-    min-height: calc(100vh - 80px);
+    min-height: 100dvh;
     /* Resta el alto del header */
     padding: 2vh 5vw;
     display: flex;
@@ -268,22 +265,6 @@ nav {
         height: 20vw;
     }
 
-    .landing h1 {
-        font-size: clamp(1.5rem, 5vw, 3rem);
-    }
-
-    .landing h3 {
-        font-size: clamp(1rem, 3.5vw, 2rem);
-    }
-
-    .landing p {
-        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-        max-width: 90%;
-    }
-
-    .landing button {
-        width: 100%;
-    }
 
 }
 
@@ -312,28 +293,21 @@ nav {
 
 }
 
-@media (max-width: 480px) {
-    .landing {
-        padding-top: 10vh;
-        padding-bottom: 10vh;
-        justify-content: start;
-    }
-}
 
 
 /* 📌 Texto dentro de Landing */
 .landing h1 {
-    font-size: clamp(1.8rem, 3vw, 2rem);
+    font-size: clamp(2rem, 5vw, 4rem);
 }
 
 .landing h3 {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1.2rem, 3vw, 2rem);
     margin: 10px 0;
 }
 
 .landing p {
     max-width: 800px;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     margin: 20px auto;
 }
 
@@ -352,33 +326,23 @@ nav {
     }
 }
 
-@media (max-width: 480px) {
-    .landing h1 {
-        font-size: clamp(1.3rem, 8vw, 2.2rem);
-    }
-
-    .landing h3 {
-        font-size: clamp(1rem, 4.5vw, 1.8rem);
-    }
-
-    .landing p {
-        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
-        max-width: 95%;
-    }
-}
-
-
-
 /* 📌 Imágenes de redes sociales */
 .about {
-    text-align: center;
-    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 1rem;
+    max-width: 90%;
 }
 
+.about h1,
+.about h3,
 .about p {
-    max-width: 800px;
-    margin: 0 auto 50px;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin: 0;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .about .icon {
@@ -403,18 +367,15 @@ nav {
 .btn {
     display: flex;
     flex-direction: column;
-    /* o row si los quieres lado a lado */
-    align-items: center;
-    /* centra horizontalmente */
-    gap: 25px;
-    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .boton {
     display: block;
     margin: 0 auto;
-    padding: 10px 20px;
-    max-width: 300px;
+    padding: 8px;
+    max-width: 220px;
     width: 100%;
     text-align: center;
     background-color: #c09f73;
@@ -422,7 +383,7 @@ nav {
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: 0.9rem;
     transition: background 0.3s, transform 0.3s;
 }
 
@@ -434,9 +395,8 @@ nav {
 /* Flecha centrada sin transform */
 .arrow {
     position: absolute;
-    margin-top: 30px;
-    padding-bottom: 20px;
-    bottom: 20px;
+    padding: 10px 0;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 1s infinite alternate;
@@ -470,8 +430,34 @@ nav {
 
 /* 📌 Responsive en pantallas pequeñas */
 @media (max-width: 480px) {
+    .landing {
+        height: auto;
+        min-height: 100dvh;
+        padding: 1vh 3vw;
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .landing h1 {
+        font-size: clamp(1.3rem, 8vw, 2.2rem);
+    }
+
+    .landing h3 {
+        font-size: clamp(1rem, 4.5vw, 1.8rem);
+    }
+
+    .landing p {
+        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
+        max-width: 95%;
+    }
+
     .arrow {
-        margin-top: 10px;
+        bottom: 5px;
+    }
+
+    .boton {
+        font-size: 0.85rem;
+        padding: 8px 10px;
     }
 }
 
@@ -495,8 +481,7 @@ nav {
 
 @media (max-width: 1024px) and (min-width: 769px) {
     .landing {
-        padding: 8vh 3vw;
-        height: 100vh;
+        height: 100dvh;
     }
 
     .about p {
@@ -525,6 +510,45 @@ nav {
 
     .foto {
         width: 100px;
+    }
+}
+
+@media (max-width: 280px) {
+
+    .landing h1,
+    .landing h3,
+    .about p {
+        font-size: 0.8rem;
+    }
+
+    .boton {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+
+    .icon img {
+        width: 24px;
+    }
+
+    .btn {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 220px) {
+    .arrow {
+        display: none;
+    }
+
+    .landing::before,
+    .landing::after,
+    .circle-bottom,
+    .circle-bottom2 {
+        display: none;
+    }
+
+    .btn {
+        flex-direction: column;
     }
 }
 
