@@ -15,6 +15,7 @@
 
 html {
     min-width: 300px;
+    scroll-padding-top: 30px;
 }
 
 body {
@@ -151,7 +152,7 @@ nav {
     height: auto;
     z-index: 0;
     /* Resta el alto del header */
-    padding: 5vh 5vw;
+    padding: 3vh 5vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -593,13 +594,13 @@ nav {
 =========================== */
 
 #Curriculum {
-    scroll-margin-top: 20px;
+    scroll-margin-top: 60px;
     /* Ajusta según el tamaño de la imagen */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 80px 20px;
+    padding: 40px 20px;
     text-align: center;
 }
 
@@ -681,7 +682,7 @@ nav {
 .text-box {
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .text-box.show {

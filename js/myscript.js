@@ -29,12 +29,43 @@ document.querySelectorAll(".menu a").forEach(link => {
     });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.05
+    });
+
+    // Observa todos los elementos con .text-box
+    const textBoxes = document.querySelectorAll('.text-box');
+    textBoxes.forEach(el => observer.observe(el));
+
+    // ✅ Revisar si hay un hash en la URL y forzar animación
+    window.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash;
+        if (hash) {
+            const el = document.querySelector(hash);
+            if (el && el.classList.contains('text-box')) {
+                // Forzar animación si ya está visible
+                el.classList.add('show');
+            }
+        }
+    });
+
+    // 💡 Skills: animación continua cuando visible
     const skillBars = document.querySelectorAll(".skill-fill");
     const skillsSection = document.querySelector(".skills");
 
     function checkScroll() {
+        if (!skillsSection) return;
+
         const sectionPosition = skillsSection.getBoundingClientRect().top;
         const screenHeight = window.innerHeight;
 
@@ -44,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 bar.style.width = skillValue + "%";
             });
         } else {
-            // Reiniciar la animación cuando la sección no está visible
             skillBars.forEach(bar => {
                 bar.style.width = "0%";
             });
@@ -54,6 +84,16 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkScroll);
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const el = document.querySelector(hash);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.classList.add("show");
+    }
+  }
+});
 
 const landing = document.querySelector('.landing');
 
@@ -73,6 +113,4 @@ setInterval(() => {
     index = (index + 1) % backgrounds.length;
     landing.style.setProperty('--bg-url', backgrounds[index]);
 }, 3000);
-
-console.log(backgrounds);
 
