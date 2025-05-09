@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const sectionPosition = skillsSection.getBoundingClientRect().top;
         const screenHeight = window.innerHeight;
 
-        if (sectionPosition < screenHeight * 0.75 && sectionPosition > -skillsSection.offsetHeight) { 
+        if (sectionPosition < screenHeight * 0.75 && sectionPosition > -skillsSection.offsetHeight) {
             skillBars.forEach(bar => {
                 const skillValue = bar.getAttribute("data-skill");
                 bar.style.width = skillValue + "%";
@@ -54,4 +54,25 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkScroll);
 });
 
+
+const landing = document.querySelector('.landing');
+
+const backgrounds = [
+    "url('../img/CPT_2M_TFM_WURONGRONG_24.png')",
+    "url('../img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER1.png')",
+    "url('../img/CPT_2M_TFM_WURONGRONG_ENVIROMENT_RENDER1.png')",
+    "url('../img/CPT_2M3T_WURONGRONG_ENVIROMENT_RENDER.png')"
+];
+
+let index = 0;
+
+// Set initial background
+landing.style.setProperty('--bg-url', backgrounds[index]);
+
+setInterval(() => {
+    index = (index + 1) % backgrounds.length;
+    landing.style.setProperty('--bg-url', backgrounds[index]);
+}, 3000);
+
+console.log(backgrounds);
 
