@@ -1,32 +1,28 @@
 // Index.html
 
-document.addEventListener("DOMContentLoaded", function () {
-    const texts = document.querySelectorAll(".text-box");
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            } else {
-                entry.target.classList.remove("show"); // Permite repetir la animación
+    if (hamburger && menu) {
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+
+        // Cerrar al hacer clic en cualquier enlace del menú
+        menu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("show");
+            });
+        });
+
+        // Cerrar al hacer clic fuera del menú
+        document.addEventListener("click", function (e) {
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove("show");
             }
         });
-    }, { threshold: 0.3 });
-
-    texts.forEach(text => observer.observe(text));
-});
-
-
-function toggleMenu() {
-    const navLinks = document.querySelector(".menu");
-    navLinks.classList.toggle("show");
-}
-
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll(".menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.querySelector(".menu").classList.remove("show");
-    });
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -34,30 +30,28 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-                observer.unobserve(entry.target);
+                observer.unobserve(entry.target); // ✅ Detiene la observación una vez aparece
             }
         });
     }, {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.05
+        threshold: 0.06 // 📍 Detecta antes, útil para móvil
     });
 
-    // Observa todos los elementos con .text-box
-    const textBoxes = document.querySelectorAll('.text-box');
-    textBoxes.forEach(el => observer.observe(el));
+    // Observa todas las cajas de texto
+    document.querySelectorAll('.text-box').forEach(el => {
+        observer.observe(el);
+    });
 
-    // ✅ Revisar si hay un hash en la URL y forzar animación
-    window.addEventListener('DOMContentLoaded', () => {
-        const hash = window.location.hash;
-        if (hash) {
-            const el = document.querySelector(hash);
-            if (el && el.classList.contains('text-box')) {
-                // Forzar animación si ya está visible
-                el.classList.add('show');
-            }
+    // ✅ Si llegas desde otra página con #Curriculum
+    const hash = window.location.hash;
+    if (hash === "#Curriculum") {
+        const el = document.querySelector(hash);
+        if (el) {
+            el.classList.add('show');
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-    });
+    }
+
 
     // 💡 Skills: animación continua cuando visible
     const skillBars = document.querySelectorAll(".skill-fill");
@@ -85,14 +79,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
-  if (hash) {
-    const el = document.querySelector(hash);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      el.classList.add("show");
+    const hash = window.location.hash;
+    if (hash === "#Curriculum") {
+        setTimeout(() => {
+            const target = document.querySelector("#Curriculum .text-box");
+            if (target) {
+                target.classList.add("show");
+            }
+        }, 100); // ⏱ Pequeño retraso para que cargue antes de aplicar
     }
-  }
 });
 
 const landing = document.querySelector('.landing');

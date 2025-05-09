@@ -236,21 +236,39 @@ nav {
 .prevBtn,
 .nextBtn {
     position: absolute;
-    top: 50%;
     z-index: 10;
-    font-size: 2.5rem;
-    background: none;
+    font-size: 3rem;
+    background: transparent;
     border: none;
     color: white;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 10px;
     user-select: none;
+    transition: color 0.2s ease;
 }
 
-.prevBtn:hover,
+.prevBtn:hover {
+    transform: scale(1.1);
+    color: #e7d296e5;
+}
+
 .nextBtn:hover {
-    color: #f8d253b9;
-    transform: scale(1.5);
+    transform: scale(1.1);
+    color: #e7d296e5;
+}
+
+.carousel .prevBtn.clicked-left {
+  animation: push-left 0.3s;
+}
+
+.carousel .nextBtn.clicked-right {
+  animation: push-right 0.3s;
+}
+
+.prevBtn:focus,
+.nextBtn:focus {
+    outline: none;
+    color: white;
 }
 
 .prevBtn {
@@ -259,6 +277,18 @@ nav {
 
 .nextBtn {
     right: 10px;
+}
+
+@keyframes push-left {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes push-right {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
 }
 
 .infoBtn {

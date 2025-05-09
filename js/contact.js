@@ -24,31 +24,27 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
 // Index.html
 
-document.addEventListener("DOMContentLoaded", function () {
-    const texts = document.querySelectorAll(".text-box");
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            } else {
-                entry.target.classList.remove("show"); // Permite repetir la animación
+    if (hamburger && menu) {
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+
+        // Cerrar al hacer clic en cualquier enlace del menú
+        menu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("show");
+            });
+        });
+
+        // Cerrar al hacer clic fuera del menú
+        document.addEventListener("click", function (e) {
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove("show");
             }
         });
-    }, { threshold: 0.3 });
-
-    texts.forEach(text => observer.observe(text));
-});
-
-
-function toggleMenu() {
-    const navLinks = document.querySelector(".menu");
-    navLinks.classList.toggle("show");
-}
-
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll(".menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.querySelector(".menu").classList.remove("show");
-    });
+    }
 });

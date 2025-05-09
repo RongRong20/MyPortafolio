@@ -57,44 +57,59 @@ function openVideoModal() {
     // Establecer el src para cargar el video
     const iframe = document.getElementById("youtubeIframe");
     iframe.src = "https://www.youtube.com/embed/l4rwTyhRJSk?autoplay=1";
-  }
+}
 
-  function closeVideoModal() {
+function closeVideoModal() {
     document.getElementById("videoModal").style.display = "none";
     document.getElementById("videoOverlay").style.display = "none";
 
     // Detener el video al cerrar
     const iframe = document.getElementById("youtubeIframe");
     iframe.src = "";
-  }
-
-// Index.html
-
-document.addEventListener("DOMContentLoaded", function () {
-    const texts = document.querySelectorAll(".text-box");
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            } else {
-                entry.target.classList.remove("show"); // Permite repetir la animación
-            }
-        });
-    }, { threshold: 0.3 });
-
-    texts.forEach(text => observer.observe(text));
-});
-
-
-function toggleMenu() {
-    const navLinks = document.querySelector(".menu");
-    navLinks.classList.toggle("show");
 }
 
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll(".menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.querySelector(".menu").classList.remove("show");
+document.querySelectorAll(".carousel button").forEach(button => {
+    button.addEventListener("mouseup", () => {
+        button.blur(); // quita el foco visual tras hacer clic
     });
+});
+
+document.querySelectorAll('.prevBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.add('clicked-left');
+    setTimeout(() => btn.classList.remove('clicked-left'), 300);
+  });
+});
+
+document.querySelectorAll('.nextBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.add('clicked-right');
+    setTimeout(() => btn.classList.remove('clicked-right'), 300);
+  });
+});
+
+// Index.html
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+
+    if (hamburger && menu) {
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+
+        // Cerrar al hacer clic en cualquier enlace del menú
+        menu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("show");
+            });
+        });
+
+        // Cerrar al hacer clic fuera del menú
+        document.addEventListener("click", function (e) {
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove("show");
+            }
+        });
+    }
 });
