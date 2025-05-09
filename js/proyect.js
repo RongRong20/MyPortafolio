@@ -68,16 +68,17 @@ function closeVideoModal() {
     iframe.src = "";
 }
 
-document.querySelectorAll(".carousel button").forEach(button => {
-    button.addEventListener("mouseup", () => {
-        button.blur(); // quita el foco visual tras hacer clic
-    });
-});
-
 document.querySelectorAll('.prevBtn').forEach(btn => {
   btn.addEventListener('click', () => {
     btn.classList.add('clicked-left');
     setTimeout(() => btn.classList.remove('clicked-left'), 300);
+    setTimeout(() => {
+      btn.blur();
+      btn.style.outline = 'none';
+      btn.style.boxShadow = 'none';
+      btn.style.background = 'transparent';  // Asegurarse de que el fondo también se mantenga transparente
+      btn.style.color = 'white';  // Mantener el color blanco
+    }, 100);  // Asegurarse de que el foco se elimine correctamente
   });
 });
 
@@ -85,6 +86,13 @@ document.querySelectorAll('.nextBtn').forEach(btn => {
   btn.addEventListener('click', () => {
     btn.classList.add('clicked-right');
     setTimeout(() => btn.classList.remove('clicked-right'), 300);
+    setTimeout(() => {
+      btn.blur();
+      btn.style.outline = 'none';
+      btn.style.boxShadow = 'none';
+      btn.style.background = 'transparent';
+      btn.style.color = 'white';
+    }, 100);
   });
 });
 
