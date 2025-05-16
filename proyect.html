@@ -2,238 +2,263 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Portfolio projects by Rong Rong Wu: concept art, 3D, and programming. Discover my creative and technical work.">
+    <meta name="keywords" content="Rong Rong Wu, Portfolio, Projects, Concept Art, 3D, Programming, Unity, Blender, Game Development">
+    <meta name="author" content="Rong Rong Wu">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Projects | Rong Rong Wu Portfolio">
+    <meta property="og:description" content="Portfolio projects by Rong Rong Wu: concept art, 3D, and programming.">
+    <meta property="og:image" content="icon/logo_sinfondo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rongrong20.github.io/MyPortafolio/proyect.html">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects | Rong Rong Wu Portfolio">
+    <meta name="twitter:description" content="Portfolio projects by Rong Rong Wu: concept art, 3D, and programming.">
+    <meta name="twitter:image" content="icon/logo_sinfondo.png">
+    <link rel="canonical" href="https://rongrong20.github.io/MyPortafolio/proyect.html">
     <link rel="stylesheet" type="text/css" href="css/proyect.css">
     <link rel="icon" type="image/x-icon" href="icon/logo_sinfondo.png">
-    <title>My Projects</title>
+     <!-- Incluye Font Awesome en tu <head> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Projects | Rong Rong Wu Portfolio</title>
 </head>
 
 <body>
 
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html" class="logo-link">
-                <img id="logo" src="icon/logo_sinfondo.png" alt="Logo">
+                <img id="logo" src="icon/logo_sinfondo.png" alt="Rong Rong Wu Logo">
             </a>
 
             <ul class="menu">
                 <li><a href="index.html">About me</a> </li>
                 <li><a href="contact.html">Contact</a> </li>
-                <li><a href="index.html#Curriculum">Curriculum</a></li>
+                <li><a href="proyect.html">Projects</a></li>
             </ul>
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <button id="menuToggle" class="hamburger" aria-label="Menu">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
         </nav>
 
     </header>
-    <section id="artproyect">
-        <h1 class="page-title">Art Proyect</h1>
+    <main>
+        <section id="artproyect">
+            <h1 class="page-title">Art Projects</h1>
 
-        <section class="art">
-            <h2 class="project-title">TFM: Environment</h2>
-            <!-- Image Carousel -->
-            <div class="carousel media-container">
-                <button class="prevBtn">❮</button>
-                <div class="carousel-images">
-                    <img src="img/TFM/CPT_2M_TFM_WURONGRONG_14.png" class="active">
-                    <img src="img/TFM/CPT_2M_TFM_WURONGRONG_17.png">
-                    <img src="img/TFM/CPT_2M_TFM_WURONGRONG_20.png">
-                    <img src="img/TFM/CPT_2M_TFM_WURONGRONG_24.png">
+            <section class="art">
+                <h2 class="project-title">TFM: Environment</h2>
+                <!-- Image Carousel -->
+                <div class="carousel media-container">
+                    <button class="prevBtn">❮</button>
+                    <div class="carousel-images">
+                        <img src="img/TFM/CPT_2M_TFM_WURONGRONG_14.png" class="active">
+                        <img src="img/TFM/CPT_2M_TFM_WURONGRONG_17.png">
+                        <img src="img/TFM/CPT_2M_TFM_WURONGRONG_20.png">
+                        <img src="img/TFM/CPT_2M_TFM_WURONGRONG_24.png">
+                    </div>
+                    <button class="nextBtn">❯</button>
                 </div>
-                <button class="nextBtn">❯</button>
-            </div>
 
-            <!-- More Info Button -->
-            <button class="infoBtn">More Info</button>
+                <!-- More Info Button -->
+                <button class="infoBtn">More Info</button>
 
-            <!-- Popup Window -->
-            <div class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>Project Details</h3>
-                    <p>For my final master’s project, I developed a video game environment concept focused on visual
-                        storytelling and atmosphere. The project features two contrasting biomes: a vast desert
-                        landscape and a frozen Arctic setting. Each environment was designed to convey a distinct mood
-                        and narrative, using light, color, and composition to immerse the player in the world.
+                <!-- Popup Window -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Project Details</h3>
+                        <p>For my final master's project, I developed a video game environment concept focused on visual
+                            storytelling and atmosphere. The project features two contrasting biomes: a vast desert
+                            landscape and a frozen Arctic setting. Each environment was designed to convey a distinct mood
+                            and narrative, using light, color, and composition to immerse the player in the world.
 
-                        The two locations are connected through magical portals, allowing players to travel between
-                        extreme climates and explore how each environment reflects different story elements. My process
-                        included concept sketches, layout exploration, and moodboards, followed by detailed
-                        illustrations developed in Photoshop and 3D support using Blender for composition and lighting
-                        references.
+                            The two locations are connected through magical portals, allowing players to travel between
+                            extreme climates and explore how each environment reflects different story elements. My process
+                            included concept sketches, layout exploration, and moodboards, followed by detailed
+                            illustrations developed in Photoshop and 3D support using Blender for composition and lighting
+                            references.
 
-                        This project allowed me to combine my passion for environment storytelling, worldbuilding, and
-                        gameplay integration, while pushing my technical and artistic skills in the development of
-                        immersive digital spaces.</p>
+                            This project allowed me to combine my passion for environment storytelling, worldbuilding, and
+                            gameplay integration, while pushing my technical and artistic skills in the development of
+                            immersive digital spaces.</p>
+                    </div>
                 </div>
-            </div>
 
-        </section>
-        <section class="art">
-            <h2 class="project-title">Other Proyects</h2>
-            <!-- Image Carousel -->
-            <div class="carousel media-container">
-                <button class="prevBtn">❮</button>
-                <div class="carousel-images">
-                    <img src="img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER2.png" class="active">
-                    <img src="img/CPT_2M1T_WURONGRONG_MODELADO_ORGANICO_MILES_RENDER2.png">
-                    <img src="img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER1.png">
-                    <img src="img/CPT_2M1T_WURONGRONG_DEMOREEL_ENVIROMENT_RENDER2.png">
-                    <img src="img/CPT_2M3T_WURONGRONG_ENVIROMENT_RENDER.png">
+            </section>
+            <section class="art">
+                <h2 class="project-title">Other Proyects</h2>
+                <!-- Image Carousel -->
+                <div class="carousel media-container">
+                    <button class="prevBtn">❮</button>
+                    <div class="carousel-images">
+                        <img src="img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER2.png" class="active">
+                        <img src="img/CPT_2M1T_WURONGRONG_MODELADO_ORGANICO_MILES_RENDER2.png">
+                        <img src="img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER1.png">
+                        <img src="img/CPT_2M1T_WURONGRONG_DEMOREEL_ENVIROMENT_RENDER2.png">
+                        <img src="img/CPT_2M3T_WURONGRONG_ENVIROMENT_RENDER.png">
+                    </div>
+                    <button class="nextBtn">❯</button>
                 </div>
-                <button class="nextBtn">❯</button>
-            </div>
 
-            <!-- More Info Button -->
-            <button class="infoBtn">More Info</button>
+                <!-- More Info Button -->
+                <button class="infoBtn">More Info</button>
 
-            <!-- Popup Window -->
-            <div class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>Project Details</h3>
-                    <p>In addition to my final master's project, I developed several other works focused on both
-                        character and environment design, using a combination of 3D sculpting, photobashing, and digital
-                        painting:
+                <!-- Popup Window -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Project Details</h3>
+                        <p>In addition to my final master's project, I developed several other works focused on both
+                            character and environment design, using a combination of 3D sculpting, photobashing, and digital
+                            painting:
 
-                        Miles Morales Character Illustration: I created a 3D sculpt of Miles in ZBrush to define
-                        anatomy, pose, and expression. This served as the base for a dynamic illustration, where I used
-                        photobashing and overpainting in Photoshop to place the character in an urban setting with
-                        stylized lighting, textures, and motion elements inspired by comic and cinematic visuals.
+                            Miles Morales Character Illustration: I created a 3D sculpt of Miles in ZBrush to define
+                            anatomy, pose, and expression. This served as the base for a dynamic illustration, where I used
+                            photobashing and overpainting in Photoshop to place the character in an urban setting with
+                            stylized lighting, textures, and motion elements inspired by comic and cinematic visuals.
 
-                        Forest Cabin Scene: A peaceful, storytelling-driven environment centered around a wooden cabin
-                        beside a forest lake. The scene explores mood, depth, and nature, with attention to composition,
-                        lighting, and atmospheric perspective.
+                            Forest Cabin Scene: A peaceful, storytelling-driven environment centered around a wooden cabin
+                            beside a forest lake. The scene explores mood, depth, and nature, with attention to composition,
+                            lighting, and atmospheric perspective.
 
-                        Castle Entrance Concept: A grand, fantasy-themed illustration featuring the entrance of a
-                        monumental castle. I used 3D blocking for architecture and perspective, then enhanced the scene
-                        with hand-painted details, photorealistic textures, and cinematic lighting.
+                            Castle Entrance Concept: A grand, fantasy-themed illustration featuring the entrance of a
+                            monumental castle. I used 3D blocking for architecture and perspective, then enhanced the scene
+                            with hand-painted details, photorealistic textures, and cinematic lighting.
 
-                        These projects allowed me to refine a hybrid workflow that combines ZBrush sculpting, 2D
-                        painting, and photorealistic elements to create visually rich and storytelling-oriented concept
-                        art for games and media.</p>
+                            These projects allowed me to refine a hybrid workflow that combines ZBrush sculpting, 2D
+                            painting, and photorealistic elements to create visually rich and storytelling-oriented concept
+                            art for games and media.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="art">
-            <h2 class="project-title">3D Proyects</h2>
-            <!-- Image Carousel -->
-            <div class="carousel media-container">
-                <button class="prevBtn">❮</button>
-                <div class="carousel-images">
-                    <img src="img/3D/CPT_2M_3T_WURONGRONG_CHARACTER_3D.png" class="active">
-                    <img src="img/3D/CPT_1M_3T_WURONGRONG_RABBIT_RENDER_1.png">
-                    <img src="img/3D/screenshot001.png">
+            </section>
+            <section class="art">
+                <h2 class="project-title">3D Proyects</h2>
+                <!-- Image Carousel -->
+                <div class="carousel media-container">
+                    <button class="prevBtn">❮</button>
+                    <div class="carousel-images">
+                        <img src="img/3D/CPT_2M_3T_WURONGRONG_CHARACTER_3D.png" class="active">
+                        <img src="img/3D/CPT_1M_3T_WURONGRONG_RABBIT_RENDER_1.png">
+                        <img src="img/3D/screenshot001.png">
+                    </div>
+                    <button class="nextBtn">❯</button>
                 </div>
-                <button class="nextBtn">❯</button>
-            </div>
 
-            <!-- More Info Button -->
-            <button class="infoBtn">More Info</button>
+                <!-- More Info Button -->
+                <button class="infoBtn">More Info</button>
 
-            <!-- Popup Window -->
-            <div class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>Project Details</h3>
-                    <p>n addition to my concept art work, I have developed several 3D character and environment projects
-                        that allowed me to explore a full production workflow from sculpt to render. These projects were
-                        created using the following pipeline:
+                <!-- Popup Window -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Project Details</h3>
+                        <p>n addition to my concept art work, I have developed several 3D character and environment projects
+                            that allowed me to explore a full production workflow from sculpt to render. These projects were
+                            created using the following pipeline:
 
-                        ZBrush for high-resolution sculpting
+                            ZBrush for high-resolution sculpting
 
-                        Maya for retopology and clean mesh preparation
+                            Maya for retopology and clean mesh preparation
 
-                        Mixamo for automatic rigging and posing
+                            Mixamo for automatic rigging and posing
 
-                        Substance Painter for texture painting and materials
+                            Substance Painter for texture painting and materials
 
-                        Marvelous Designer for realistic cloth simulation
+                            Marvelous Designer for realistic cloth simulation
 
-                        Blender for environment modeling and scene layout
+                            Blender for environment modeling and scene layout
 
-                        Marmoset Toolbag for final rendering and presentation
+                            Marmoset Toolbag for final rendering and presentation
 
-                        Some of the completed character projects include:
+                            Some of the completed character projects include:
 
-                        An elven archer, focused on graceful anatomy and layered costuming
+                            An elven archer, focused on graceful anatomy and layered costuming
 
-                        A stylized rabbit, with an expressive pose and cartoon-inspired textures
+                            A stylized rabbit, with an expressive pose and cartoon-inspired textures
 
-                        Sara, a modern character concept based on a bass guitarist, blending urban style and attitude
+                            Sara, a modern character concept based on a bass guitarist, blending urban style and attitude
 
-                        A fantasy king, wearing ornate robes and accessories designed to convey power and elegance
+                            A fantasy king, wearing ornate robes and accessories designed to convey power and elegance
 
-                        Each project helped me refine my understanding of the 3D pipeline, from anatomical sculpting and
-                        clothing to posing, texturing, and presentation. I particularly enjoy combining realism and
-                        stylization, bringing characters and environments to life in a visually engaging and technically
-                        polished way.</p>
+                            Each project helped me refine my understanding of the 3D pipeline, from anatomical sculpting and
+                            clothing to posing, texturing, and presentation. I particularly enjoy combining realism and
+                            stylization, bringing characters and environments to life in a visually engaging and technically
+                            polished way.</p>
+                    </div>
                 </div>
-            </div>
 
-        </section>
-    </section>
-
-    <section id="game">
-        <h1 class="page-title">Programation Proyect</h1>
-        <section class="game">
-            
-            <div class="video-box">
-                <h2 class="project-title">TFG: Scaperoom in Unity</h2>
-                <div class="video-container media-container">
-                    
-                    <iframe src="https://www.youtube.com/embed/l4rwTyhRJSk?si=038oz3NgjfnI2gna"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-
-                </div>
-                <button class="infoBtn" onclick="openVideoModal()">More Info</button>
-            </div>
-            <!-- More Info Button -->
-            
-
-            <div class="modal" id="videoModal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeVideoModal()">&times;</span>
-                    <h3>Project Details</h3>
-                    <p>As part of my undergraduate final project, I developed a narrative-driven detective game using
-                        Unity. The goal of the game is to solve a mini murder case by exploring different suspect
-                        locations, gathering clues, and analyzing evidence to identify the killer.
-
-                        The player moves between interactive environments, such as rooms in each suspect’s home, where
-                        they can investigate objects, read documents, and uncover hidden items. The game features simple
-                        inventory logic, dialogue sequences, and progressive clue unlocking that leads to the final
-                        deduction.
-
-                        This project allowed me to combine game design, storytelling, and programming, focusing on
-                        player agency and logical thinking. It was built entirely in Unity, with C# scripts handling
-                        object interactions, dialogue triggers, and state changes across the investigation.
-
-                        This experience strengthened my understanding of game logic, scene management, and event
-                        systems, while also highlighting how narrative and mechanics can work together to deliver an
-                        engaging gameplay experience.</p>
-                </div>
-            </div>
+            </section>
         </section>
 
+        <section id="game">
+            <h1 class="page-title">Programming Projects</h1>
+            <section class="game">
 
-    </section>
+                <div class="video-box">
+                    <h2 class="project-title">TFG: Scaperoom in Unity</h2>
+                    <div class="video-container media-container">
+
+                        <iframe src="https://www.youtube.com/embed/l4rwTyhRJSk?si=038oz3NgjfnI2gna"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+
+                    </div>
+                    <button class="infoBtn" onclick="openVideoModal()">More Info</button>
+                </div>
+                <!-- More Info Button -->
+
+
+                <div class="modal" id="videoModal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeVideoModal()">&times;</span>
+                        <h3>Project Details</h3>
+                        <p>As part of my undergraduate final project, I developed a narrative-driven detective game using
+                            Unity. The goal of the game is to solve a mini murder case by exploring different suspect
+                            locations, gathering clues, and analyzing evidence to identify the killer.
+
+                            The player moves between interactive environments, such as rooms in each suspect’s home, where
+                            they can investigate objects, read documents, and uncover hidden items. The game features simple
+                            inventory logic, dialogue sequences, and progressive clue unlocking that leads to the final
+                            deduction.
+
+                            This project allowed me to combine game design, storytelling, and programming, focusing on
+                            player agency and logical thinking. It was built entirely in Unity, with C# scripts handling
+                            object interactions, dialogue triggers, and state changes across the investigation.
+
+                            This experience strengthened my understanding of game logic, scene management, and event
+                            systems, while also highlighting how narrative and mechanics can work together to deliver an
+                            engaging gameplay experience.</p>
+                    </div>
+                </div>
+            </section>
+
+
+        </section>
+    </main>
 
     <footer>
         <div class="footer-container">
 
-            <div class="social.icons">
-                <a href="document/Currículum Rong Rong Wu.pdf" download="CvRongRongWu.pdf">
-                    <img src="icon/3789854.png" alt="cv"></a>
-                <a href="contact.html">
-                    <img src="icon/6759737.png" alt="Contact-me"></a>
-                <a href="https://www.linkedin.com/in/rong-rong-wu-a41427210/ ">
-                    <img src="icon/images.png" alt="linkelin"></a>
-                <a href="https://www.artstation.com/rongrongwu3">
-                    <img src="icon/unnamed.png" alt="Artstation"></a>
-                <a href="https://www.instagram.com/rong_draw_art/">
-                    <img src="icon/insta.png" alt="instagram"> </a>
+            <div class="social-icons">
+                <a href="document/Currículum Rong Rong Wu.pdf" download="CvRongRongWu.pdf" aria-label="Download CV">
+                    <img src="icon/3789854.png" alt="Download CV"></a>
+                <a href="contact.html" aria-label="Contact Me">
+                    <img src="icon/6759737.png" alt="Contact Me"></a>
+                <a href="https://www.linkedin.com/in/rong-rong-wu-a41427210/" aria-label="LinkedIn">
+                    <img src="icon/images.png" alt="LinkedIn"></a>
+                <a href="https://www.artstation.com/rongrongwu3" aria-label="ArtStation">
+                    <img src="icon/unnamed.png" alt="ArtStation"></a>
+                <a href="https://www.instagram.com/rong_draw_art/" aria-label="Instagram">
+                    <img src="icon/insta.png" alt="Instagram"> </a>
             </div>
             <p>© Made in 2025 by Rong Rong Wu</p>
         </div>

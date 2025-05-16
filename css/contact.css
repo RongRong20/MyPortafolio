@@ -72,9 +72,11 @@ nav {
 }
 
 #logo {
-    max-width: 70px;
+    position: relative;
+    max-width: 50px;
     height: auto;
     transition: all 0.3s ease-in-out;
+    z-index: 9500;
 }
 
 #logo:hover {
@@ -107,13 +109,23 @@ nav {
     cursor: pointer;
 }
 
+/* Accesibilidad: estilos para :focus */
+.menu a:focus,
+input[type="submit"]:focus,
+.footer-container img:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
 /* --- Menú Hamburguesa (Oculto por defecto en pantallas grandes) --- */
 .hamburger {
-    font-size: 30px;
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
     color: white;
     cursor: pointer;
-    display: none;
-    /* Se muestra solo en móviles */
+    z-index: 9999;
 }
 
 /* --- Responsive: Mostrar el Menú Hamburguesa en móviles --- */
@@ -128,11 +140,12 @@ nav {
         top: 60px;
         left: 0;
         width: 100%;
-        background: radial-gradient(circle, #dad3c4 40%, rgba(245, 245, 220, 0) 100%);
+        background: #dad3c4;
         flex-direction: column;
         align-items: center;
         display: none;
         padding: 20px 0;
+        z-index: 800;
     }
 
     .menu.show {
@@ -140,21 +153,21 @@ nav {
     }
 
     .hamburger {
-        display: block;
+        display: flex;
+        align-self: center;
+        padding: 0;
     }
 }
 
 /* Contenedor del formulario */
 .contact {
-    top: 3%;
     width: 90%;
     max-width: 900px;
     /* Evita que sea demasiado ancho */
-    height: auto;
-    min-height: 80vh;
+    height: 75dvh;
     /* Para que no toque el footer */
     margin: auto;
-    padding: 2rem 2rem 3rem 2rem;
+    padding: 3rem 2rem 3rem 2rem;
     border-radius: 10px;
     text-align: center;
     background: rgba(255, 255, 255, 0.712);
@@ -162,12 +175,13 @@ nav {
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* Limita el alto en móvil */
+    overflow-y: auto;
 }
 
 /* Estilos generales de inputs */
 h2 {
-    margin-bottom: 1rem;
+
     color: var(--text-color);
 }
 
@@ -186,12 +200,12 @@ input,
 textarea {
     width: 100%;
     padding: 10px;
-    margin: 1rem 0 0 0;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     align-self: center;
     background: rgba(219, 195, 179, 0.473);
+    margin: 10px 0;
 }
 
 textarea {
@@ -232,9 +246,26 @@ input[type="submit"]:hover {
 
 /* 📌 Responsive: Ajuste en pantallas pequeñas */
 @media (max-width: 768px) {
-   .contact{
-    margin-top: 50px;
-   }
+    .contact {
+        margin-top: 50px;
+        justify-content: flex-start;
+        width: 90%;
+        max-width: 90vw;
+        padding: 2rem 1rem 2rem 1rem;
+        box-sizing: border-box;
+        max-height: 80vh;
+        /* Limita el alto en móvil */
+        overflow-y: auto;
+    }
+
+
+    input[type="submit"] {
+        width: auto;
+        min-width: 80px;
+        max-width: 120px;
+        margin: 0;
+        align-self: flex-end;
+    }
 }
 
 /* ===========================
@@ -275,6 +306,15 @@ footer {
     opacity: 0.7;
 }
 
+/* Redes sociales en el footer */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 /* 📌 Texto pequeño y elegante */
 .footer-text {
     font-size: 14px;
@@ -290,5 +330,18 @@ footer {
 
     .footer-container img {
         margin: 10px 5px;
+    }
+}
+
+/* Responsive: Footer en móviles pequeños */
+@media (max-width: 480px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container img {
+        width: 32px;
+        margin: 8px 0;
     }
 }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400&display=swap');
 
 :root {
-    --background-color: #e9e7e2;
+    --background-color: #dad3c4;
     --text-color: #302d2a;
     --highlight-color: #FFD700;
     --accent-color: #FF4C29;
@@ -14,7 +14,9 @@
 }
 
 html {
-    min-width: 300px;
+    height: 100%;
+    min-height: 100dvh;
+    min-width: 100dvw;
     scroll-padding-top: 30px;
 }
 
@@ -24,7 +26,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     padding-top: 80px;
-    min-width: 300px;
+    min-width: 100dvw;
+    height: 100%;
+    min-height: 100dvh;
 
 }
 
@@ -35,11 +39,6 @@ h4 {
     font-family: 'Playfair Display', serif;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
 /* ===========================
    Header
@@ -47,12 +46,13 @@ h4 {
 
 header {
     width: 100%;
-    height: 80px;
+    min-height: 80px;
+    overflow: visible;
     position: fixed;
     display: flex;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 900;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom, #dad3c4 60%, rgba(245, 245, 220, 0) 100%);
@@ -63,19 +63,28 @@ nav {
     width: 95%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
 }
 
 /* --- Logo --- */
 .logo-link {
     display: flex;
     align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    /* Asegura que ocupe toda la altura del header */
 }
 
 #logo {
-    max-width: 70px;
-    height: auto;
-    transition: all 0.3s ease-in-out;
+    position: relative;
+    height: 100%;
+    width: auto;
+    max-height: 50px;
+    /* O el valor que uses en tu header */
+    display: block;
+    border-radius: 50%;
+    z-index: 2500;
 }
 
 #logo:hover {
@@ -107,19 +116,22 @@ nav {
     cursor: pointer;
 }
 
-/* --- Menú Hamburguesa (Oculto por defecto en pantallas grandes) --- */
 .hamburger {
-    font-size: 30px;
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
     color: white;
     cursor: pointer;
-    display: none;
-    /* Se muestra solo en móviles */
+    z-index: 9999;
 }
+
 
 /* --- Responsive: Mostrar el Menú Hamburguesa en móviles --- */
 @media (max-width: 768px) {
     header {
         background: #dad3c4;
+        min-height: 70px;
     }
 
     .menu {
@@ -127,11 +139,12 @@ nav {
         top: 60px;
         left: 0;
         width: 100%;
-        background: radial-gradient(circle, #dad3c4 40%, rgba(245, 245, 220, 0) 100%);
+        background: #dad3c4;
         flex-direction: column;
         align-items: center;
         display: none;
         padding: 20px 0;
+        z-index: 800;
     }
 
     .menu.show {
@@ -139,8 +152,11 @@ nav {
     }
 
     .hamburger {
-        display: block;
+        display: flex;
+        align-self: center;
+        padding: 0;
     }
+
 }
 
 /* ===========================
@@ -352,7 +368,7 @@ nav {
 }
 
 .about h1,
-.about h3,
+.about h2,
 .about p {
     margin: 0;
     line-height: 1.3;
@@ -516,11 +532,11 @@ nav {
     }
 
     .landing h1 {
-        font-size: 1.2rem;
+        font-size: 2.5rem;
     }
 
-    .landing h3 {
-        font-size: 1rem;
+    .landing h2 {
+        font-size: 1.3rem;
     }
 
     .about p {
@@ -540,18 +556,40 @@ nav {
 
 
 @media (max-width: 300px) {
+    body {
+        padding-top: 0;
+    }
+
     .landing {
         position: relative;
+        min-height: 100vh;
+        height: 100vh;
         padding: 0;
+    }
+
+
+
+    .landing::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER2.png');
+        background-size: cover;
+        background-position: center;
+        clip-path: none;
+        opacity: 0.25;
+        z-index: -1;
     }
 
     .landing::after {
         display: none;
     }
 
-    .landing h1,
-    .landing h3 {
-        font-size: 0.9rem;
+    .landing h1 {
+        font-size: 2rem;
     }
 
     .about p {
@@ -669,9 +707,7 @@ nav {
 /* 📌 Imagen en la mitad del cuadro */
 .foto {
     width: 150px;
-    clip-path: circle(50%);
-    border: 4px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 5px 5px 15px rgba(211, 199, 186, 0.342);
+    border-radius: 10px;
     position: absolute;
     top: -50px;
     left: 50%;
@@ -688,6 +724,7 @@ nav {
 .text-box.show {
     opacity: 1;
     transform: translateY(0);
+    margin: 10px 0px;
 }
 
 /* 📌 Contenedor de skills y languages con menos opacidad */
@@ -710,8 +747,6 @@ nav {
 
 /* 📌 Skills en dos columnas */
 .skills-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     width: 100%;
 }
@@ -723,6 +758,7 @@ nav {
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(241, 235, 200, 0.2);
     text-align: center;
+    margin: 10px 0px;
 }
 
 .skills-column h3 {
@@ -751,20 +787,28 @@ nav {
 
 /* 📌 Diseño de la sección de idiomas */
 .languages ul {
-    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
     padding: 0;
+    list-style: none;
 }
 
 .languages li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(245, 244, 240, 0.822);
+    width: 100%;
+    background: #fff;
     padding: 10px;
     margin: 5px 0;
     border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(241, 235, 200, 0.2);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
 }
+
+
 
 .lang-name {
     font-weight: bold;
@@ -773,10 +817,45 @@ nav {
 
 .lang-level {
     background: #ddac63;
-    color: white;
+    color: #ddac63;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
+    /* Fuerza a ocupar todo */
+    min-width: 250px;
+    /* Puedes ajustar */
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: none;
+    position: relative;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+/* Recorte en esquina superior derecha */
+.lang-level::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #ddac63;
+    /* mismo que fondo general */
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+/* Recorte en esquina inferior izquierda */
+.lang-level::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #ddac63;
+    clip-path: polygon(0 100%, 0 0, 100% 100%);
 }
 
 /* 📌 Responsive: Ajuste en pantallas pequeñas */
@@ -828,6 +907,15 @@ footer {
     justify-content: space-between;
 }
 
+/* 📌 Redes sociales en el footer */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 /* 📌 Logos e imágenes en tamaño reducido */
 .footer-container img {
     width: 40px;
@@ -847,6 +935,14 @@ footer {
     opacity: 0.7;
 }
 
+/* 📌 Accesibilidad: estilos para :focus */
+.menu a:focus,
+.boton:focus,
+.footer-container img:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
 /* 📌 Texto pequeño y elegante */
 .footer-text {
     font-size: 14px;
@@ -858,9 +954,22 @@ footer {
     .footer-container {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
     .footer-container img {
         margin: 10px 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container img {
+        width: 32px;
+        margin: 8px 0;
     }
 }

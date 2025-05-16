@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Carruseles y modales para cada sección de arte
     document.querySelectorAll(".art").forEach((container) => {
-        // Selecciona cada carrusel individualmente
         container.querySelectorAll(".carousel").forEach((carousel) => {
             const images = carousel.querySelectorAll(".carousel-images img");
             let currentIndex = 0;
-
             const prevBtn = carousel.querySelector(".prevBtn");
             const nextBtn = carousel.querySelector(".nextBtn");
 
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Manejo del modal individualmente
+        // Modal individual
         const modal = container.querySelector(".modal");
         const infoBtn = container.querySelector(".infoBtn");
         const closeBtn = modal ? modal.querySelector(".close") : null;
@@ -47,6 +46,38 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+
+    // Menú hamburguesa
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+    const menuIcon = document.getElementById("menuIcon");
+
+    if (hamburger && menu && menuIcon) {
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("show");
+            if (menu.classList.contains("show")) {
+                menuIcon.classList.replace("fa-bars", "fa-times");
+            } else {
+                menuIcon.classList.replace("fa-times", "fa-bars");
+            }
+        });
+
+        // Cerrar al hacer clic en cualquier enlace del menú
+        menu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("show");
+                menuIcon.classList.replace("fa-times", "fa-bars");
+            });
+        });
+
+        // Cerrar al hacer clic fuera del menú
+        document.addEventListener("click", function (e) {
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove("show");
+                menuIcon.classList.replace("fa-times", "fa-bars");
+            }
+        });
+    }
 });
 
 
@@ -94,30 +125,4 @@ document.querySelectorAll('.nextBtn').forEach(btn => {
       btn.style.color = 'white';
     }, 100);
   });
-});
-
-// Index.html
-document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.querySelector(".hamburger");
-    const menu = document.querySelector(".menu");
-
-    if (hamburger && menu) {
-        hamburger.addEventListener("click", () => {
-            menu.classList.toggle("show");
-        });
-
-        // Cerrar al hacer clic en cualquier enlace del menú
-        menu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                menu.classList.remove("show");
-            });
-        });
-
-        // Cerrar al hacer clic fuera del menú
-        document.addEventListener("click", function (e) {
-            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-                menu.classList.remove("show");
-            }
-        });
-    }
 });

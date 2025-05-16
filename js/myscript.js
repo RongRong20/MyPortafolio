@@ -1,18 +1,27 @@
 // Index.html
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Menú hamburguesa
     const hamburger = document.querySelector(".hamburger");
     const menu = document.querySelector(".menu");
+    const menuIcon = document.getElementById("menuIcon");
 
-    if (hamburger && menu) {
+    if (hamburger && menu && menuIcon) {
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("show");
+            // Cambia el ícono según el estado
+            if (menu.classList.contains("show")) {
+                menuIcon.classList.replace("fa-bars", "fa-times");
+            } else {
+                menuIcon.classList.replace("fa-times", "fa-bars");
+            }
         });
 
         // Cerrar al hacer clic en cualquier enlace del menú
         menu.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
                 menu.classList.remove("show");
+                menuIcon.classList.replace("fa-times", "fa-bars");
             });
         });
 
@@ -20,40 +29,28 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener("click", function (e) {
             if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
                 menu.classList.remove("show");
+                menuIcon.classList.replace("fa-times", "fa-bars");
             }
         });
     }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+    // Intersection Observer para animaciones de aparición
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-                observer.unobserve(entry.target); // ✅ Detiene la observación una vez aparece
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.06 // 📍 Detecta antes, útil para móvil
+        threshold: 0.06
     });
 
-    // Observa todas las cajas de texto
     document.querySelectorAll('.text-box').forEach(el => {
         observer.observe(el);
     });
 
-    // ✅ Si llegas desde otra página con #Curriculum
-    const hash = window.location.hash;
-    if (hash === "#Curriculum") {
-        const el = document.querySelector(hash);
-        if (el) {
-            el.classList.add('show');
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-    }
-
-
-    // 💡 Skills: animación continua cuando visible
+    // Skills: animación de barras de progreso
     const skillBars = document.querySelectorAll(".skill-fill");
     const skillsSection = document.querySelector(".skills");
 
@@ -76,36 +73,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener("scroll", checkScroll);
-});
 
-window.addEventListener("DOMContentLoaded", () => {
+    // Hash navigation para #Curriculum
     const hash = window.location.hash;
     if (hash === "#Curriculum") {
         setTimeout(() => {
-            const target = document.querySelector("#Curriculum .text-box");
-            if (target) {
-                target.classList.add("show");
+            const el = document.querySelector("#Curriculum .text-box");
+            if (el) {
+                el.classList.add("show");
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
             }
-        }, 100); // ⏱ Pequeño retraso para que cargue antes de aplicar
+        }, 100);
+    }
+
+    // Fondo dinámico landing
+    const landing = document.querySelector('.landing');
+    if (landing) {
+        const backgrounds = [
+            "url('../img/CPT_2M_TFM_WURONGRONG_24.png')",
+            "url('../img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER1.png')",
+            "url('../img/CPT_2M_TFM_WURONGRONG_ENVIROMENT_RENDER1.png')",
+            "url('../img/CPT_2M3T_WURONGRONG_ENVIROMENT_RENDER.png')"
+        ];
+        let index = 0;
+        landing.style.setProperty('--bg-url', backgrounds[index]);
+        setInterval(() => {
+            index = (index + 1) % backgrounds.length;
+            landing.style.setProperty('--bg-url', backgrounds[index]);
+        }, 3000);
     }
 });
-
-const landing = document.querySelector('.landing');
-
-const backgrounds = [
-    "url('../img/CPT_2M_TFM_WURONGRONG_24.png')",
-    "url('../img/CPT_2M_3T_WURONGRONG_COTTAGE_RENDER1.png')",
-    "url('../img/CPT_2M_TFM_WURONGRONG_ENVIROMENT_RENDER1.png')",
-    "url('../img/CPT_2M3T_WURONGRONG_ENVIROMENT_RENDER.png')"
-];
-
-let index = 0;
-
-// Set initial background
-landing.style.setProperty('--bg-url', backgrounds[index]);
-
-setInterval(() => {
-    index = (index + 1) % backgrounds.length;
-    landing.style.setProperty('--bg-url', backgrounds[index]);
-}, 3000);
 
