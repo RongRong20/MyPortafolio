@@ -963,7 +963,6 @@ footer {
 .menu a:focus,
 .boton:focus,
 .footer-container img:focus {
-    outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
 
