@@ -646,6 +646,7 @@ nav {
 .education {
     background: rgba(245, 244, 240, 0.822);
     padding: 40px;
+    padding-top: 100px; /* Aumenta el espacio arriba para la foto */
     border-radius: 15px;
     backdrop-filter: blur(12px);
     box-shadow: 0px 0px 50px rgba(241, 235, 200, 0.3);
@@ -706,12 +707,13 @@ nav {
 
 /* 📌 Imagen en la mitad del cuadro */
 .foto {
-    width: 150px;
+   width: 150px;
     border-radius: 10px;
     position: absolute;
     top: -50px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
 }
 
 /* 📌 Efecto de aparición */
@@ -747,6 +749,8 @@ nav {
 
 /* 📌 Skills en dos columnas */
 .skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     width: 100%;
 }
@@ -868,11 +872,7 @@ nav {
     .foto {
         max-width: 120px;
     }
-}
-
-/* 📌 Responsive para móviles */
-@media (max-width: 768px) {
-    .education {
+      .education {
         max-width: 100%;
     }
 
@@ -880,12 +880,16 @@ nav {
         flex-direction: column;
         text-align: center;
     }
+     .skills-container {
+        grid-template-columns: 1fr;
+    }
 
     .skills-languages-container {
         grid-template-columns: 1fr;
         /* Cambia a una sola columna en pantallas pequeñas */
     }
 }
+
 
 /* ===========================
    Footer

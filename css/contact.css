@@ -163,9 +163,6 @@ input[type="submit"]:focus,
 .contact {
     width: 90%;
     max-width: 900px;
-    /* Evita que sea demasiado ancho */
-    height: 75dvh;
-    /* Para que no toque el footer */
     margin: auto;
     padding: 3rem 2rem 3rem 2rem;
     border-radius: 10px;
@@ -188,6 +185,7 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
+    height: 80%;
 }
 
 label {
@@ -224,10 +222,7 @@ input[type="submit"] {
     min-width: 150px;
     /* Asegura que no se haga muy pequeño */
     max-width: 250px;
-    /* Evita que sea demasiado grande */
-    margin: 10px auto;
-    /* Centrado horizontalmente */
-    display: block;
+    align-self: flex-end;
 }
 
 input[type="submit"]:hover {
