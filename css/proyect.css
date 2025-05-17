@@ -519,12 +519,7 @@ h1 {
     }
 }
 
-/* Accesibilidad: estilos para :focus */
-.menu a:focus,
-button:focus,
-.footer-container img:focus {
-    outline-offset: 2px;
-}
+
 
 /* Redes sociales en el footer */
 .social-icons {
