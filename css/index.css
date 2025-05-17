@@ -4,7 +4,8 @@
     --background-color: #dad3c4;
     --text-color: #302d2a;
     --highlight-color: #FFD700;
-    --accent-color: #0078D4; /* Cambia a azul, por ejemplo */
+    --accent-color: #0078D4;
+    /* Cambia a azul, por ejemplo */
 }
 
 * {
@@ -59,7 +60,7 @@ nav {
     width: 95%;
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
 }
 
 /* --- Logo --- */
@@ -174,7 +175,8 @@ nav {
     align-items: center;
     text-align: center;
     background: radial-gradient(circle, rgba(236, 222, 199, 0.5) 20%, rgba(245, 231, 220, 0.3) 60%, rgba(245, 245, 220, 0) 100%);
-    overflow-y: auto; /* Permite scroll si el contenido es mayor que la pantalla */
+    overflow-y: auto;
+    /* Permite scroll si el contenido es mayor que la pantalla */
     overflow-x: hidden;
 }
 
@@ -204,9 +206,9 @@ nav {
     position: absolute;
     top: 10%;
     right: 5%;
-    width: 450px;
-    /* Ajuste automático */
-    height: 450px;
+    width: clamp(160px, 35vw, 450px);
+    /* Se ajusta entre 150px y 350px */
+    height: clamp(160px, 35vw, 450px);
     background-image: url('../img/CPT_2M_TFM_WURONGRONG_24.png');
     background-size: cover;
     background-position: center;
@@ -654,7 +656,8 @@ nav {
 .education {
     background: rgba(245, 244, 240, 0.822);
     padding: 40px;
-    padding-top: 100px; /* Aumenta el espacio arriba para la foto */
+    padding-top: 100px;
+    /* Aumenta el espacio arriba para la foto */
     border-radius: 15px;
     backdrop-filter: blur(12px);
     box-shadow: 0px 0px 50px rgba(241, 235, 200, 0.3);
@@ -715,7 +718,7 @@ nav {
 
 /* 📌 Imagen en la mitad del cuadro */
 .foto {
-   width: 150px;
+    width: 150px;
     border-radius: 10px;
     position: absolute;
     top: -50px;
@@ -835,7 +838,8 @@ nav {
     border-radius: 5px;
     font-size: 14px;
     /* Fuerza a ocupar todo */
-    min-width: 250px;
+    width: 50%;
+    min-width: 0;
     /* Puedes ajustar */
     padding: 12px 20px;
     box-sizing: border-box;
@@ -881,7 +885,8 @@ nav {
     .foto {
         max-width: 120px;
     }
-      .education {
+
+    .education {
         max-width: 100%;
     }
 
@@ -889,7 +894,8 @@ nav {
         flex-direction: column;
         text-align: center;
     }
-     .skills-container {
+
+    .skills-container {
         grid-template-columns: 1fr;
     }
 
@@ -897,8 +903,10 @@ nav {
         grid-template-columns: 1fr;
         /* Cambia a una sola columna en pantallas pequeñas */
     }
-    .lang-level{
-        min-width: 120px
+
+    .lang-level {
+        width: 65%;
+        min-width: 0;
     }
 }
 
@@ -994,7 +1002,8 @@ footer {
     }
 }
 
-html, body {
+html,
+body {
     width: 100%;
     max-width: 100vw;
     overflow-x: hidden;
