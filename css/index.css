@@ -4,7 +4,7 @@
     --background-color: #dad3c4;
     --text-color: #302d2a;
     --highlight-color: #FFD700;
-    --accent-color: #FF4C29;
+    --accent-color: #0078D4; /* Cambia a azul, por ejemplo */
 }
 
 * {
@@ -15,8 +15,6 @@
 
 html {
     height: 100%;
-    min-height: 100dvh;
-    min-width: 100dvw;
     scroll-padding-top: 30px;
 }
 
@@ -26,9 +24,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     padding-top: 80px;
-    min-width: 100dvw;
     height: 100%;
-    min-height: 100dvh;
 
 }
 
@@ -166,27 +162,27 @@ nav {
 .landing {
     min-height: 100dvh;
     height: auto;
+    max-height: none;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
     z-index: 0;
-    /* Resta el alto del header */
-    padding: 3vh 5vw;
+    padding: 1vh 5vw 0 5vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* Centra `.about` verticalmente */
+    justify-content: flex-start;
     align-items: center;
-    /* Centra `.about` horizontalmente */
     text-align: center;
-    overflow: hidden;
-    /* Si quieres que NO aparezca barra de scroll */
-    /* NECESARIO para `.arrow` */
     background: radial-gradient(circle, rgba(236, 222, 199, 0.5) 20%, rgba(245, 231, 220, 0.3) 60%, rgba(245, 245, 220, 0) 100%);
+    overflow-y: auto; /* Permite scroll si el contenido es mayor que la pantalla */
+    overflow-x: hidden;
 }
 
 /* Círculo en la izquierda */
 .landing::before {
     content: "";
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 5%;
     width: clamp(150px, 30vw, 350px);
     /* Se ajusta entre 150px y 350px */
@@ -199,13 +195,14 @@ nav {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     opacity: 0.25;
     z-index: -1;
+    transition: opacity 0.3s ease;
 }
 
 /* Hexágono en la derecha */
 .landing::after {
     content: "";
     position: absolute;
-    top: 20%;
+    top: 10%;
     right: 5%;
     width: 450px;
     /* Ajuste automático */
@@ -218,13 +215,14 @@ nav {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     opacity: 0.35;
     z-index: -1;
+    transition: opacity 0.3s ease;
 }
 
 
 /* Nuevo círculo en el centro inferior */
 .circle-bottom {
     position: absolute;
-    bottom: 10vh;
+    bottom: 18vh;
     /* Lo baja más */
     left: 35%;
     transform: translateX(-50%);
@@ -237,12 +235,13 @@ nav {
     opacity: 0.35;
     /* Hace que sea más transparente */
     z-index: -1;
+    transition: opacity 0.3s ease;
 }
 
 /* Nuevo círculo en el centro inferior */
 .circle-bottom2 {
     position: absolute;
-    bottom: 5vh;
+    bottom: 13vh;
     /* Lo baja más */
     right: 15%;
     transform: translateX(-50%);
@@ -256,6 +255,7 @@ nav {
     opacity: 0.25;
     /* Hace que sea más transparente */
     z-index: -1;
+    transition: opacity 0.3s ease;
 }
 
 /* 📌 Responsive: Ajustes en móviles */
@@ -268,7 +268,7 @@ nav {
     }
 
     .landing::after {
-        top: 20%;
+        top: 10%;
         right: 8%;
         width: 35vw;
         height: 35vw;
@@ -323,6 +323,14 @@ nav {
     }
 
 
+}
+
+.landing.scrolled::before,
+.landing.scrolled::after,
+.landing.scrolled .circle-bottom,
+.landing.scrolled .circle-bottom2 {
+    opacity: 0.1 !important;
+    transition: opacity 0.5s;
 }
 
 
@@ -427,14 +435,14 @@ nav {
 
 /* Flecha centrada sin transform */
 .arrow {
-    position: absolute;
-    padding: 10px 0;
-    bottom: 7dvh;
+    position: fixed;
     left: 50%;
+    bottom: 2dvh;
     transform: translateX(-50%);
+    z-index: 1000;
     animation: bounce 1s infinite alternate;
-    z-index: 10;
-    height: auto;
+    transition: opacity 0.4s;
+    opacity: 1;
 }
 
 .arrow img {
@@ -740,7 +748,7 @@ nav {
 /* 📌 Skills & Languages */
 .skills,
 .languages {
-    background: rgba(245, 244, 240, 0.6);
+    background: rgba(245, 244, 240, 0.8);
     padding: 30px;
     border-radius: 15px;
     backdrop-filter: blur(8px);
@@ -774,7 +782,7 @@ nav {
 .skill-bar {
     background: #f0eeec;
     border-radius: 10px;
-    height: 12px;
+    height: 18px;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -782,8 +790,9 @@ nav {
 }
 
 .skill-fill {
+    display: block;
     height: 100%;
-    width: 0;
+    width: 0%;
     background: linear-gradient(90deg, #d8d4cb, #ffa600);
     transition: width 1.6s ease-in-out;
     border-radius: 10px;
@@ -888,6 +897,9 @@ nav {
         grid-template-columns: 1fr;
         /* Cambia a una sola columna en pantallas pequeñas */
     }
+    .lang-level{
+        min-width: 120px
+    }
 }
 
 
@@ -947,6 +959,10 @@ footer {
     outline-offset: 2px;
 }
 
+.menu a:focus {
+    outline: none;
+}
+
 /* 📌 Texto pequeño y elegante */
 .footer-text {
     font-size: 14px;
@@ -982,6 +998,7 @@ html, body {
     width: 100%;
     max-width: 100vw;
     overflow-x: hidden;
+    /* Elimina min-width y min-height */
 }
 
 .curriculum-container,

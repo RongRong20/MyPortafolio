@@ -100,6 +100,9 @@ nav {
     color: black;
     transition: background 0.3s, color 0.3s;
 }
+.menu a:focus {
+    outline: none;
+}
 
 .menu a:hover {
     background-color: rgb(206, 163, 128);

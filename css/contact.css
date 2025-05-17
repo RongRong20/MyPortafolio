@@ -117,6 +117,10 @@ input[type="submit"]:focus,
     outline-offset: 2px;
 }
 
+.menu a:focus {
+    outline: none;
+}
+
 /* --- Menú Hamburguesa (Oculto por defecto en pantallas grandes) --- */
 .hamburger {
     display: none;
