@@ -523,7 +523,6 @@ h1 {
 .menu a:focus,
 button:focus,
 .footer-container img:focus {
-    outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
 

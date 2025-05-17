@@ -113,7 +113,6 @@ nav {
 .menu a:focus,
 input[type="submit"]:focus,
 .footer-container img:focus {
-    outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
 
